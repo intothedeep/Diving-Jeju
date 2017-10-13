@@ -15,13 +15,12 @@ Backend:
 - Maven
 - log4j
 - Mybatis
+- RESTful API/RestTemplate
 
 DB:
 - Oracle
 
 Front:
-- HTML5
-- CSS3
 - Bootstrap
 - Javascript
 - jQuery
@@ -29,12 +28,14 @@ Front:
 - Json
 - Mustache.js
 - Jstl
-
-API:
-- Daum address api
-- Kakao pay api
-- Kakao Map api
-- Google Firebase/Authentification
-- Kakao Authentification
+- HTML5
+- CSS3
 - chart.js^
 - calendar.js^
+
+API:
+- Daum address 
+- Kakao payment 
+- Kakao Map (Tmap and Naver Map)
+- Google Firebase/Authentication
+- Kakao Authentication
