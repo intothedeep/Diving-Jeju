@@ -3,3 +3,43 @@ Diving site, Weather, Guesthouse etc... search or booking information for people
 
 
 This is my first personal project since I have started learning programming!
+
+
+Techs that I used and will use:
+
+IDE:
+- Spring
+- Atom
+
+Backend:
+- Java
+- Jsp
+- MVC model2
+- Maven
+- Jstl
+- log4j
+- Mybatis
+
+DB:
+- Oracle
+
+Front:
+- HTML5
+- CSS3
+- Bootstrap
+- Javascript
+- jQuery
+- Ajax
+- Json
+- Mustache.js
+
+API:
+- Daum address api
+- Kakao pay api
+- Kakao Map api
+- Google Firebase/Authentification
+- Kakao Authentification
+- chart.js^
+- calendar.js^
+
+ 
