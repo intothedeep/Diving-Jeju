@@ -14,31 +14,48 @@
               </div>
 
               <div class="modal-body">
-                <div class="container-fluid" style="text-align: center;">
-                  <button class="btn btn-default loginId" type="button" name="button">
-                  	<h3>Freedive</h3>
-<%--                     <img src="${root}/img/freedive.jpg" alt="프리다이브 로그인">
- --%>             </button>
+              
+                <div class="container-fluid" style="text-align: center; margin-bottom: 7px;">
+                  <button class="btn btn-warning" id="kakao-login-btn" type="button" 
+                  style="padding: 0; width: 225px;">
+					<h6>KakaoTalk Login</h6>
+                  </button>
                 </div>
-                <div class="" style="border:1px solid lightblue;"></div>
-                <div class="container-fluid" style="text-align: center;">
-                  <button class="btn btn-default" id="kakao-login-btn" type="button" name="kakao" style="padding:0;"></button>
+                
+                <div class="container-fluid" style="text-align: center; margin-bottom: 7px;">
+                  <button class="btn btn-danger" id="google_login" type="button"
+                  style="padding: 0; width: 225px;">
+					<h6>Google Login</h6>
+		           </button>
                 </div>
-                <a href="#" id="google_login">Google sign-in using Popup</a>
+                
+                <div class="container-fluid" style="text-align: center; margin-bottom: 7px;">
+                  <button class="btn btn-info loginId" type="button"
+                  style="padding: 0; width: 225px;">
+                  	<h6>Diving & Jeju Login</h6>
+		           </button>
+                </div>
+
+				<div class="container-fluid"  style="text-align: center;">
+                  <button class="btn btn-default" id="join" type="button"
+                  style="padding: 0; width: 225px;">
+					<h6>회원 가입</h6>
+		           </button>
+				</div>
+				
               </div>
-              <div>
-				<a href="http://developers.kakao.com/logout">카카오 로그아웃</a>
-				<h6><a class="" href="${root}/member/register.html">회원 가입</a></h6>
-              </div>
+              
+              
               <div class="modal-footer">
-                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
               </div>
+              
             </div>
           </div>
         </div>
         
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <script src="${root}/js/common/kakaologin.js" charset="utf-8"></script>
+    <script src="${root}/js/common/login.js" charset="utf-8"></script>
     
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
