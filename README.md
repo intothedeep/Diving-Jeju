@@ -16,7 +16,6 @@ Backend:
 - Jsp
 - MVC model2
 - Maven
-- Jstl
 - log4j
 - Mybatis
 
@@ -32,6 +31,7 @@ Front:
 - Ajax
 - Json
 - Mustache.js
+- Jstl
 
 API:
 - Daum address api
@@ -41,5 +41,3 @@ API:
 - Kakao Authentification
 - chart.js^
 - calendar.js^
-
- 
