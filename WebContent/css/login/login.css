@@ -1,0 +1,58 @@
+*{
+  /*border: 1px solid green;*/
+}
+
+div {
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+section {
+  height: 500px;
+  min-width: 400px;
+  margin-top: 7%;
+  padding: 2%;
+
+
+  border: 2px solid #dd;
+  border-radius: 3px;
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.2);
+  transition: all 200ms ease-out;
+}
+
+section:hover {
+    box-shadow: 0px 0px 6px rgba(35,173,255,1);
+}
+
+.form-control {
+  border: none;
+  border-bottom: 2px lightblue solid;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 17px;
+}
+
+
+#id:focus {
+  border-bottom: 4px lightblue solid;
+}
+
+#pass:focus {
+  border-bottom: 4px lightblue solid;
+}
+
+#idBtn, #passBtn {
+  width: 100px;
+  padding: 5px;
+  box-shadow: 0px 0px 6px rgba(35,173,255,1);
+
+}
+
+
+div.panel {
+
+    font-family: "Roboto";
+
+}

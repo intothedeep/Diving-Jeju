@@ -1,0 +1,54 @@
+body {
+    font-family: "Roboto";
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.4285;
+    color: #333;
+    background-color: #fff;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: #459ce7;
+}
+
+a {
+    background-color: transparent;
+}
+
+nav ul a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.foot {
+  list-style: none;
+
+}
+
+/*바디 리스트*/
+div {
+/* 		border: 1px solid green;
+*/	}
+
+.gpic-img {
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.gpic {
+	position: relative;
+	vertical-align: middle;
+	height: 400px;
+    
+}
+.gpic-wrapper {
+    text-align: center;
+}

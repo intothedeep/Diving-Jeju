@@ -1,0 +1,113 @@
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [ContextLoader] [285 line] Root WebApplicationContext: initialization started 
+[DEBUG  ] [2017-09-17 23:42:02] localhost-startStop-1> [StandardServletEnvironment] [109 line] Adding [servletConfigInitParams] PropertySource with lowest search precedence 
+[DEBUG  ] [2017-09-17 23:42:02] localhost-startStop-1> [StandardServletEnvironment] [109 line] Adding [servletContextInitParams] PropertySource with lowest search precedence 
+[DEBUG  ] [2017-09-17 23:42:02] localhost-startStop-1> [StandardServletEnvironment] [109 line] Adding [jndiProperties] PropertySource with lowest search precedence 
+[DEBUG  ] [2017-09-17 23:42:02] localhost-startStop-1> [StandardServletEnvironment] [109 line] Adding [systemProperties] PropertySource with lowest search precedence 
+[DEBUG  ] [2017-09-17 23:42:02] localhost-startStop-1> [StandardServletEnvironment] [109 line] Adding [systemEnvironment] PropertySource with lowest search precedence 
+[DEBUG  ] [2017-09-17 23:42:02] localhost-startStop-1> [StandardServletEnvironment] [124 line] Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,jndiProperties,systemProperties,systemEnvironment] 
+[DEBUG  ] [2017-09-17 23:42:02] localhost-startStop-1> [StandardServletEnvironment] [174 line] Replacing [servletContextInitParams] PropertySource with [servletContextInitParams] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlWebApplicationContext] [510 line] Refreshing Root WebApplicationContext: startup date [Sun Sep 17 23:42:02 KST 2017]; root of context hierarchy 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\admin-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\board-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\boardadmin-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\book-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\common-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\guesthouse-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\map-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\member-application.xml] 
+[INFO   ] [2017-09-17 23:42:02] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\payment-application.xml] 
+[INFO   ] [2017-09-17 23:42:03] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\stat-application.xml] 
+[INFO   ] [2017-09-17 23:42:03] localhost-startStop-1> [XmlBeanDefinitionReader] [317 line] Loading XML bean definitions from file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\store-application.xml] 
+[DEBUG  ] [2017-09-17 23:42:03] localhost-startStop-1> [XmlWebApplicationContext] [540 line] Bean factory for Root WebApplicationContext: org.springframework.beans.factory.support.DefaultListableBeanFactory@440d58d3: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.aop.config.internalAutoProxyCreator,freeboardService,transactionAdvisor,txAdvice,transactionManager,ds,ssfb,ss]; root of factory hierarchy 
+[DEBUG  ] [2017-09-17 23:42:03] localhost-startStop-1> [XmlWebApplicationContext] [646 line] Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@3661248b] 
+[DEBUG  ] [2017-09-17 23:42:03] localhost-startStop-1> [XmlWebApplicationContext] [670 line] Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@5fda827c] 
+[WARN   ] [2017-09-17 23:42:03] localhost-startStop-1> [XmlWebApplicationContext] [487 line] Exception encountered during context initialization - cancelling refresh attempt 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ssfb' defined in file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\common-application.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [com/free/config/mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4745)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5207)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1409)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [com/free/config/mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:499)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:98)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:493)
+	... 24 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:170)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:108)
+	... 26 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:163)
+	... 27 more
+[ERROR  ] [2017-09-17 23:42:03] localhost-startStop-1> [ContextLoader] [331 line] Context initialization failed 
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ssfb' defined in file [X:\javadata\workSpace\myproject\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\wtpwebapps\guest\WEB-INF\classes\com\free\config\spring\common-application.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [com/free/config/mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:742)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4745)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5207)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1409)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [com/free/config/mybatis/mybatis-config.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:499)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:381)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624)
+	... 21 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:120)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:98)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:493)
+	... 24 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberDto'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:170)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:108)
+	... 26 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.free.member.model.MemberDto
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:200)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:89)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:261)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:163)
+	... 27 more

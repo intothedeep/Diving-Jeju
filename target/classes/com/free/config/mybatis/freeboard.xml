@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.free.board.all.dao.FreeBoardDao">
+    
+    <select id="listArticle" parameterType="java.util.Map" resultType="reboardDto">
+        select b.*
+            from (
+                    select rownum rn, a.*
+                    from (
+                            select  b.seq, b.id, b.name, b.email, b.subject, 
+                                    b.content, b.hit, b.bcode, b.up, b.down,
+                                    decode(to_char(logtime, 'yymmdd'), 
+                                    to_char(sysdate, 'yymmdd'), to_char(logtime, 'hh24:mi:ss'), 
+                                    to_char(logtime, 'yy.mm.dd')) logtime,
+                                    r.rseq, r.ref, r.lev, r.step, r.pseq, r.reply 
+                            from board b, reboard r
+                            where b.seq = r.seq
+                                    and b.bcode = #{bcode}
+                                    <if test="key != '' and word != ''">
+                                        <if test="key == 'subject'">
+                                            and b.subject like '%'||#{word}||'%'
+                                        </if>
+                                        <if test="key != 'subject'">
+                                            and b.${key} = #{word}
+                                        </if>
+                                    </if>
+                                    <if test="hot != ''">
+                                        and b.hit + b.up*10 - b.down*10 > 100
+                                        and r.lev = 0
+                                    </if>
+                             order by  r.ref desc, r.step asc
+                             ) a
+                    where rownum &lt;= #{end}
+                ) b
+            where b.rn &gt; #{start}
+    </select>
+    
+    <select id="getArticle" parameterType="int" resultType="reboardDto">
+        select 	b.seq, b.id, b.name, b.email, b.subject, 
+                b.content, b.hit, b.logtime, b.bcode, b.up, b.down,
+                r.rseq, r.ref, r.lev, r.step, r.pseq, r.reply 
+        from board b, reboard r
+        where b.seq = r.seq
+        and b.seq = #{seq}
+    </select>
+    
+    <insert id="freeBoardWrite" parameterType="reboardDto">
+        insert all
+            into board (seq, name, id, email, subject, content, hit, logtime, bcode, up, down)
+            values(#{seq}, #{name}, #{id}, #{email}, #{subject}, #{content}, 0, sysdate, #{bcode}, 0, 0)
+            into reboard (rseq, seq, ref, lev, step, pseq, reply)
+            values (reboard_seq.nextval, #{seq}, #{ref}, 0, 0, 0, 0)
+        select * from dual          
+    </insert>
+    
+    <update id="modifyArticle" parameterType="boardDto">
+        update board
+        set content = #{content}, subject = #{subject}
+        where seq = #{seq}
+    </update>
+<!--    reply-->
+    <update id="updateStep" parameterType="reboardDto">
+        update reboard
+        set step = step + 1
+        where ref = #{ref}
+        and step > #{step}
+    </update>
+    <insert id="replyArticle" parameterType="reboardDto">
+        insert all
+            into board (seq, name, id, email, subject, content, hit, logtime, bcode, up, down)
+            values(#{seq}, #{name}, #{id}, #{email}, #{subject}, #{content}, 0, sysdate, #{bcode}, 0, 0)
+            into reboard (rseq, seq, ref, lev, step, pseq, reply)
+            values (reboard_seq.nextval, #{seq}, #{ref}, #{lev} + 1, #{step} + 1, #{pseq}, 0)
+        select * from dual
+    </insert>
+    <update id="updateReply" parameterType="int">
+        update reboard
+        set reply = reply + 1
+        where seq = #{pseq}
+    </update>
+<!--    delete-->
+    <select id="selectDelete" parameterType="int" resultType="int">
+        select pseq
+        from reboard
+        where seq = #{seq}
+    </select>
+    <delete id="deleteReboard" parameterType="int">
+        delete reboard
+        where seq = #{seq}
+    </delete>
+    <delete id="deleteBoard" parameterType="int">
+        delete board
+        where seq = #{seq}
+    </delete>
+    <update id="update_ref_reply" parameterType="int">
+        update reboard
+        set reply = reply - 1
+        where seq = #{pseq}
+    </update>
+    
+<!--    hotlist 사이드-->
+    <select id="getHotList" parameterType="int" resultType="reboardDto">
+        select seq, subject, id, hit, up, reply
+        from
+        	(
+        	select b.subject, b.id, b.seq, b.hit, b.up, r.reply
+        	from board b, reboard r
+        	where
+        		b.seq = r.seq and
+        		b.bcode = 1 and
+        		hit + reply*10 + up*20 - down*20 > 300 and
+        		r.lev = 0
+        	order by b.logtime desc, b.hit desc
+        	) c
+        where rownum &lt;= 5
+    </select>
+    
+</mapper>

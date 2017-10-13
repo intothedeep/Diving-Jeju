@@ -1,0 +1,273 @@
+body {
+    font-family: "Roboto";
+    font-size: 14px;
+    line-height: 1.4285;
+    color: #333;
+    background-color: #fff;
+}
+
+header {
+    text-align: center;
+}
+
+div.container {
+    width: 100%;
+    height: 90% auto;
+    /*border: 1px solid gray;*/
+}
+
+
+button {
+  /*margin: .2%;*/
+}
+
+div {
+  /*margin: .5%;*/
+  /*border: 1px solid black;*/
+}
+
+nav,header,.content,section,article,aside,footer {
+  margin: 0;
+  /*border: 2px solid green;*/
+}
+
+header {
+  min-width: 660px;
+  margin-top: 20px;
+  margin-bottom: .3%;
+  border-bottom: 3px solid black;
+}
+
+.content {
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+  height: auto;
+  padding: .1%;
+  vertical-align: middle;
+}
+
+
+article {
+  height: auto;
+  margin: 1%
+  padding: 1em;
+  overflow: hidden;
+}
+
+footer {
+  min-width: 470px;
+}
+
+/*title bar*/
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+nav ul a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: green;
+  font-size: 20px;
+}
+
+.subject {
+  padding-left: 3px;
+  /*border: 1px solid black;*/
+}
+
+.centercolumn {
+  text-align: center;
+}
+
+/*board searchblock*/
+div.inner {
+  margin: .2%;
+  display: inline-block;
+  vertical-align: middle;
+
+  /*border: 1px solid black;*/
+}
+
+div.search-container {
+  margin: 2px;
+  text-align:center;
+}
+
+div.search-wrapper {
+  margin: 2px;
+  padding: 2px;
+}
+
+div.writebtn-containter {
+  text-align:right;
+  margin: .2%;
+}
+
+div.writebtn-wrapper {
+  margin: .2%;
+  padding: .1%;
+}
+
+/*hot list*/
+.hotlist {
+  width:100%;
+  text-align:center;
+  font-size: 15px;
+}
+*/
+
+.ads {
+  width: 100%;
+  height: 80%;
+  text-align: center;
+  padding: 2%;
+}
+
+/*summer note*/
+#summernote {
+}
+
+
+
+
+
+
+/*hotlist*/
+.title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.newslatestWrap {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.newslatestWrap .w-header {
+    display: table;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.newslatestWrap ul li {
+    padding: 0;
+    margin-bottom: 5px;
+    overflow: hidden;
+    list-style: none;
+    line-height: 17px;
+    vertical-align: middle;
+}
+
+.clear {
+    clear: both;
+}
+
+.newslatestWrap .n_contentWrap .regdate .bar {
+    margin: 0 10px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.newslatestWrap .n_contentWrap .regdate {
+    color: #888;
+    font-size: 11px;
+}
+
+.newslatestWrap .w-title {
+    display: table-cell;
+    float: left;
+    line-height: normal;
+    font-size: 12px;
+    margin: 0;
+    padding: 0 12px 0 0;
+    white-space: nowrap;
+}
+
+.newslatestWrap .w-barWrap {
+    display: table-cell;
+    height: 6px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.newslatestWrap .w-bar {
+    background: rgb(240, 240, 240) none repeat scroll 0 0;
+    height: 3px;
+    margin-top: -1px;
+    box-sizing: content-box;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+
+
+
+
+
+/* �� �� ��� */
+body, button, input, select, table, textarea {
+    font-family: "Apple SD Gothic Neo","����",Gulim,Tahoma,Geneva,sans-serif;
+    font-size: 12px;
+}
+
+.mydocWrap {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+
+.mydocWrap .w-header {
+    display: table;
+    margin: 0 0 10px;
+    overflow: hidden;
+}
+
+.mydocWrap .w-barWrap {
+    display: table-cell;
+    height: 6px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.mydocWrap .w-title {
+    display: table-cell;
+    float: left;
+    line-height: normal;
+    font-size: 12px;
+    margin: 0;
+    padding: 0 12px 0 0;
+    white-space: nowrap;
+}
+
+.mydocWrap .w-bar {
+    background: rgb(240, 240, 240) none repeat scroll 0 0;
+    height: 3px;
+    margin-top: -1px;
+    box-sizing: content-box;
+    display: block;
+    position: relative;
+    width: 100%;
+}

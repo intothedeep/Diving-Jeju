@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.free.board.all.dao.BoardCommonDao">
+    
+    <select id="getNextSeq" resultType="int">
+        select board_seq.nextval
+        from dual
+    </select>
+    
+    <update id="updateHit">
+        update board
+        set hit = hit +1
+        where seq = #{seq}
+    </update>
+    
+    <select id="newArticleCount" parameterType="int" resultType="int">
+        select count(seq) 
+        from board
+        where bcode = #{bcode}
+        and to_char(logtime, 'yymmdd') = to_char(sysdate, 'yymmdd')
+    </select>
+    
+    <select id="totalArticleCount" parameterType="java.util.Map" resultType="int">
+        select count(seq) 
+        from board
+        where bcode = #{bcode}
+        <if test="key != '' and word != ''">
+            <if test="key == 'subject'">
+                and subject like '%'||#{word}||'%'
+            </if>
+            <if test="key != 'subject'">
+                and ${key} = #{word}
+            </if>
+        </if>
+    </select>
+    
+    <update id="plusUp" parameterType="int">
+        update board
+        set up = up + 1
+        where seq = #{seq}
+    </update>
+    <select id="getUp" parameterType="int" resultType="int">
+        select up
+        from board
+        where seq = #{seq}
+    </select>
+    
+    <update id="plusDown" parameterType="int">
+        update board
+        set down = down + 1
+        where seq = #{seq}
+    </update>
+    <select id="getDown" parameterType="int" resultType="int">
+        select down
+        from board
+        where seq = #{seq}
+    </select>
+
+</mapper>

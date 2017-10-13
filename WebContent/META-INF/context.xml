@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/guest" auth="Container"
+      type="javax.sql.DataSource"
+      factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
+      driverClassName="oracle.jdbc.driver.OracleDriver"
+      url="jdbc:oracle:thin:@localhost:1521:orcl" username="free"
+      password="free" maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+      removeAbandonedTimeout="60"
+      logAbandoned="true" />
+
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+</Context>

@@ -1,0 +1,149 @@
+admin
+	
+board
+	category
+		ccode number not null,
+		cname varchar2(100)
+		
+	board_list
+		bcode number not null,
+		bname varchar2(100),
+		btype number,
+		ccode number
+		
+	boardtype
+		BTYPE NUMBER NOT NULL,
+		BTYPE_NAME VARCHAR2(100)
+		
+	board
+		seq not null,
+		name varchar2(20),
+		id varchar2(16) not null,
+		email varchar2(50),
+		subject varchar2(100) not null,
+		content clob,
+		hit number default 0,
+		logtime date default sysdate,
+		bcode number,
+		up number default 0,
+		down number default 0
+	
+		
+	reboard
+		rseq number not null,
+		seq number,
+		ref number,
+		lev number,
+		step number,
+		pseq number,
+		reply number default 0
+		
+	memo
+		MSEQ NUMBER NOT NULL,
+		SEQ NUMBER,
+		ID VARCHAR2(16),
+		NAME VARCHAR2(10),
+		MCONTENT VARCHAR2(500),
+		MTIME DATE DEFAULT SYSDATE
+		
+	album
+		aseq number not null,
+		seq number,
+		orign_picture varchar2(100),
+		save_picture varchar2(100),
+		savefolder varchar2(30),
+		type number(1) default 0
+		
+	bbs
+		BSEQ NUMBER NOT NULL,
+		SEQ NUMBER,
+		ORIGN_FILE VARCHAR2(100),
+		SAVE_FILE VARCHAR2(100),
+		FILESIZE NUMBER,
+		SAVEFOLDER VARCHAR2(30)
+		
+	
+
+		
+	
+guesthouse
+	guesthouse
+		
+	reservation
+		
+	board
+		
+	
+map
+	guesthouse
+		guest_seq
+		id
+		name
+		zipcode
+		addr1
+		addr2
+		loc
+		
+	tour
+	
+	weather
+	
+	beach
+	
+	diving
+	
+	location
+	
+member
+	member
+		name varchar2(30),
+		id varchar2(30),
+		pass varchar2(30),
+		email varchar2(40),
+		checkUp number(1) default 5, --up check
+		checkDown number(1) default 5 -- down check
+	
+	memberdetail
+		id varchar2(30),
+		zipcode
+		addr1
+		addr2
+		hp
+		home
+		
+exlogin
+	login
+		login_seq
+		email
+		pass
+		loginid
+	gmail
+		id
+		email
+		pass
+		gmailid
+		
+	facebook
+		id
+		email
+		pass
+		facebookid
+		
+	kakaotalk
+		id
+		email
+		pass
+		kakao id
+		
+	twitter		
+		id
+		email
+		
+		
+		
+이메일은 정규식으로 받아서 이메일 앞자리는 id로 
+로그인은 id나 이메일을 이용해서
+그리고 카카오톡이나
+
+		
+	

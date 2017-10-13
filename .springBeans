@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.8.4.201703310634-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/com/free/config/spring/member-application.xml</config>
+		<config>src/com/free/config/spring/map-application.xml</config>
+		<config>src/com/free/config/spring/map-servlet.xml</config>
+		<config>src/com/free/config/spring/admin-application.xml</config>
+		<config>src/com/free/config/spring/admin-servlet.xml</config>
+		<config>src/com/free/config/spring/book-application.xml</config>
+		<config>src/com/free/config/spring/book-servlet.xml</config>
+		<config>src/com/free/config/spring/payment-application.xml</config>
+		<config>src/com/free/config/spring/payment-servlet.xml</config>
+		<config>src/com/free/config/spring/guesthouse-application.xml</config>
+		<config>src/com/free/config/spring/guesthouse-servlet.xml</config>
+		<config>src/com/free/config/spring/boardadmin-application.xml</config>
+		<config>src/com/free/config/spring/boardadmin-servlet.xml</config>
+		<config>src/com/free/config/spring/store-application.xml</config>
+		<config>src/com/free/config/spring/store-servlet.xml</config>
+		<config>src/com/free/config/spring/common-application.xml</config>
+		<config>src/com/free/config/spring/common-servlet.xml</config>
+		<config>src/com/free/config/spring/member-servlet.xml</config>
+		<config>src/com/free/config/spring/board-application.xml</config>
+		<config>src/com/free/config/spring/board-servlet.xml</config>
+		<config>src/com/free/config/spring/stat-application.xml</config>
+		<config>src/com/free/config/spring/stat-servlet.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

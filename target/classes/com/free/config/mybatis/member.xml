@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.free.member.dao.MemberDao">
+    
+    <select id="loginId" parameterType="String" resultType="memberDto">
+        select id, name, pass, email
+        from member
+        where email=#{email}
+    </select>
+    
+    <select id="loginPass" parameterType="java.util.Map" resultType="memberDto">
+        select id, name, pass, email, jointype, membertype
+        from member
+        where email=#{email} and pass=#{pass}
+    </select>
+    
+    <insert id="register" parameterType="memberDetailDto">
+        insert all
+        into member (EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE)
+            values(#{email}, #{name}, #{pass}, #{id}, #{joinType}, #{memberType})
+            into member_detail(ADDR1, ADDR2, ZIPCODE, JOINDATE, EMAIL, BIRTH, TEL, GENDER)
+            values(#{addr1}, #{addr2}, #{zipcode}, sysdate, #{email}, #{birth}, #{tel}, #{gender})
+         select * from dual
+    </insert>
+    
+    <select id="getMember" parameterType="String" resultType="memberDetailDto">
+        select *
+        from member m, member_detail d
+        where
+            m.email = d.email and
+            m.email = #{email}
+    </select>
+    
+    <update id="modifyMember" parameterType="memberDetailDto">
+        update member
+        set pass = #{pass}
+        where email = #{email}
+    </update>
+    
+    <update id="modifyMemberDetail" parameterType="memberDetailDto">
+        update member_detail
+        set 
+            addr1 = #{addr1},
+            addr2 = #{addr2},
+            zipcode = #{zipcode}
+        where email = #{email}        
+    </update>
+</mapper>

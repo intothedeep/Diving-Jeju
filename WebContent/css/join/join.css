@@ -1,0 +1,31 @@
+div, nav, header, section, article, footer {
+  /*border:2px solid black;*/
+  /*margin: .2%;*/
+  /*background-color:*/
+}
+
+body {
+    /*font-family: "Roboto";*/
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.4285;
+    color: #333;
+    background-color: #fff;
+}
+
+#bmonth:focus, #bmonth:hover {
+  background-color: white;
+}
+
+.errormsg, .errormatch {
+  color: #FF0000;
+  display: none;
+}
+
+.content {
+  min-width: auto;
+}
+
+#bmonth {
+  font-weight: bold;
+}

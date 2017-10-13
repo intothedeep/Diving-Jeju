@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    
+    <typeAliases>
+        <typeAlias alias="memberDto" type="com.free.member.model.MemberDto"/>
+        <typeAlias alias="memberDetailDto" type="com.free.member.model.MemberDetailDto"/>
+        <typeAlias alias="zipDto" type="com.free.member.model.ZipDto"/>
+        <typeAlias alias="boardDto" type="com.free.board.admin.model.BoardDto"/>
+        <typeAlias alias="reboardDto" type="com.free.board.all.model.ReboardDto"/>
+        <typeAlias alias="memoDto" type="com.free.board.all.model.MemoDto"/>
+        <typeAlias alias="albumDto" type="com.free.board.all.model.AlbumDto"/>
+        
+        <typeAlias alias="pageNation" type="com.free.util.PageNavigation"/>
+        <typeAlias alias="guesthouseDto" type="com.free.guesthouse.model.GuesthouseDto"/>
+        
+    </typeAliases>
+    
+    <mappers>
+        <mapper resource="com/free/config/mybatis/member.xml"/>
+        <mapper resource="com/free/config/mybatis/freeboard.xml"/>
+        <mapper resource="com/free/config/mybatis/boardcommon.xml"/>
+        <mapper resource="com/free/config/mybatis/guesthouse.xml"/>
+        <mapper resource="com/free/config/mybatis/memo.xml"/>
+        <mapper resource="com/free/config/mybatis/album.xml"/>
+        <mapper resource="com/free/config/mybatis/map.xml"/>
+        
+        
+        <!--        <mapper resource="com/free/config/mybatis/common.xml"/>
+--><!--        <mapper resource="com/free/config/mybatis/reboard.xml"/>
+-->    </mappers>
+    
+</configuration>

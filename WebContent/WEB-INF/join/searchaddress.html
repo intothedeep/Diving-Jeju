@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>주소검색</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./css/bootstrap readable.min.css">
+    <link rel="stylesheet" href="./css/bootstrap readable.css">
+    <link rel="stylesheet" href="./css/myproject.css">
+
+    <link rel="stylesheet" href="./css/searchaddress.css">
+    <script src="./js/searchaddress.js" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <section class="container-fluid col-xs-12">
+      <div class="container-fluid">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#"> 지번 주소</a></li>
+          <li class="inactive"><a href="#">도로명 주소</a></li>
+        </ul>
+      </div>
+        <form class="form-group" name="searchaddress" id="searchaddress" action="" method="post" onsubmit="javascript: return false;">
+          <div class="form-group" id="searchaddress-form-element">
+              <div class="container-fluid">
+                <label id="searchaddress-label">
+                  <h5><strong>주소 검색</strong></h5>
+                </label>
+              </div>
+
+              <div class="jibun container">
+                <div class="col-xs-9" style="display:inline-block; padding: 0; margin: 0;">
+                  <input name="jibun" class="form-control zip" id="doro" placeholder="지번 주소">
+                </div>
+                <div class="col-xs-3" style="display:inline-block; padding: 0; margin: 0;">
+                  <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> 검색</a>
+                </div>
+              </div>
+
+              <div class="doro container">
+                <div class="col-xs-9" style="display:inline-block; padding: 0; margin: 0;">
+                  <input name="doro" class="form-control zip" id="doro" placeholder="도로명 주소">
+                </div>
+                <div class="col-xs-3" style="display:inline-block; padding: 0; margin: 0;">
+                  <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> 검색</a>
+                </div>
+              </div>
+
+              <div class="container-fluid">
+                <span class="errormsg" id="errormsg_0_dong" role="alert">필수 입력란입니다.</span>
+              </div>
+          </div>
+        </form>
+
+        <div class="container col-xs-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>우편번호</th>
+                <th>주소</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>12345</td>
+                <td>서울시 강남구 테헤란로 1길 1번지</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+    </section>
+  </body>
+
+</html>

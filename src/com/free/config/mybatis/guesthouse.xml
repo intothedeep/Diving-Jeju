@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.free.guesthouse.dao.GuesthouseDao">
+    <select id="getGuesthouse" parameterType="int" resultType="guesthouseDto">
+        select
+            g.GUESTSEQ, g.WIFI, g.CAFE, g.EAT, g.SLEEPTIME, g.CHECKIN, g.CHECKOUT, g.LAUNDRYSERVED, g.MORE, g.STORESEQ,
+            s.STORESEQ, s.LOC, s.ACCOUNTNUM, s.BIZ_LICENSE_NUM, s.EMAIL, s.STORETYPESEQ, s.EVALUATION,
+            m.EMAIL, m.NAME, m.PASS, m.ID, m.JOINTYPE, m.MEMBERTYPE,	
+            d.ADDR1, d.ADDR2, d.ZIPCODE, d.JOINDATE, d.EMAIL, d.BIRTH, d.TEL, d.GENDER	
+        from guesthouse g, store s, member m, member_detail d
+        where
+            g.storeseq = s.storeseq and
+            s.email = m.email and
+            m.email = d.email and
+            guestSeq = #{guestSeq}
+            
+    </select>
+</mapper>
