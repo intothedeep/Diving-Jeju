@@ -22,46 +22,46 @@
                   </button>
                 </div>
                 
-                <div class="container-fluid" style="text-align: center; margin-bottom: 7px;">
-                  <button class="btn btn-danger" id="google_login" type="button"
-                  style="padding: 0; width: 225px;">
-					<h6>Google Login</h6>
-		           </button>
-                </div>
-                
+				<div class="container-fluid" style="text-align: center; margin-bottom: 7px;">
+					<button
+					class="btn btn-danger mdl-button mdl-js-button mdl-button--raised" 
+					id="google_login" type="button" 
+					style="padding: 0; width: 225px;">
+						<h6>Google Login</h6>
+					</button>
+				</div>
+
+              </div>
+              
+              
+              <div class="modal-footer">
                 <div class="container-fluid" style="text-align: center; margin-bottom: 7px;">
                   <button class="btn btn-info loginId" type="button"
                   style="padding: 0; width: 225px;">
                   	<h6>Diving & Jeju Login</h6>
 		           </button>
                 </div>
-
-				<div class="container-fluid"  style="text-align: center;">
+								
+				<div class="container-fluid"  style="text-align: center; margin-bottom: 7px;">
                   <button class="btn btn-default" id="join" type="button"
                   style="padding: 0; width: 225px;">
 					<h6>회원 가입</h6>
 		           </button>
 				</div>
-				
-              </div>
-              
-              
-              <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+                
               </div>
               
             </div>
           </div>
         </div>
         
-    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="${root}/js/common/login.js" charset="utf-8"></script>
+    
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     
 	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-database.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-messaging.js"></script>
-
-	<script src="${root}/js/common/firebase.js"></script>
 	

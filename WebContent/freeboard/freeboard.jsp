@@ -195,7 +195,7 @@ div{
               </li>
             </ul>
 
-<%@ include file="/common/loginnav.jsp"%>
+			<%@ include file="/common/loginnav.jsp"%>
             
         </div>
       </div>

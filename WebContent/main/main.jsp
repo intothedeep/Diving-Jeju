@@ -107,62 +107,58 @@
     </nav>
   </div>
   
+  
+  
+<!-- <style>
+  div {
+  	border: 1px green solid;
+  }
+</style> -->
+
+
+  
+  <div class="container" style="margin-top: 30px;">
+    <c:forEach var = "i" begin = "1" end = "7">
+	
+	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding: 0px;">
+		<div class="panel panel-default" style=" margin-right: 3%; margin-left: 3%;">
+		
+			<a href="#">
+				<div class="panel-heading" style="padding: 0px;">
+					<img src="${root}/img/freedive boracai.jpg" style="width: 100%;">
+				</div>
+			</a>
+			<div class="panel-body" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+				<p>
+					나쁜토끼게스트하우스 
+				</p>
+				<p>
+					디테일한 묘사
+				</p> 
+			</div>
+			
+			<div class="panel-footer" style="height: 40px; padding: 5px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+				<div class="col-xs-8" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+					00명 추천
+				</div>
+				<div class="col-xs-4" style="text-align: right; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+					<a href="#">
+						<span class="glyphicon glyphicon-thumbs-up" style="color: red; font-size: 12px;"></span>
+					</a>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+			
+  	</c:forEach>	
+  </div>
+  
+  
+  
   <div class="container" style="margin-top: 15px;">
-    <script type="text/javascript">
-    /* Javascript 샘플 코드 */
-
-
-	/* var xhr = new XMLHttpRequest();
-    var url = 'http://openapi.jejutour.go.kr:8080/openapi/service/TourMapService/getTourMapList';
-    var queryParams = '?' + encodeURIComponent('ServiceKey=uscY8RM2rqv%2BSxyNdJm49Rgf3CDw3yWUce1NhcaUqizhqu6c%2FP0FJDJE%2Bgibt0SrADO4q9V1R44AL2%2FfF%2BqfEQ%3D%3D');
-    queryParams += '&' + encodeURIComponent('CAT') + '=' + encodeURIComponent('TUTUTU01');
-    xhr.open('GET', url + queryParams);
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4) {
-            alert('Status: '+this.status+' Headers: '+JSON.stringify(this.getAllResponseHeaders())+' Body: '+this.responseText);
-        }
-    };
-
-    xhr.send(''); 
- */  
-
-      // $(document).ready(function() {
-      //   $.ajax({
-      //     url: 'http://openapi.epost.go.kr/postal/retrieveNewAdressAreaCdSearchAllService/retrieveNewAdressAreaCdSearchAllService/getNewAddressListAreaCdSearchAll',
-      //     type: 'get',
-      //     data: {
-      //       'ServiceKey':'uscY8RM2rqv%2BSxyNdJm49Rgf3CDw3yWUce1NhcaUqizhqu6c%2FP0FJDJE%2Bgibt0SrADO4q9V1R44AL2%2FfF%2BqfEQ%3D%3D',
-      //       'countPerPage':'10',
-      //       'currentPage':'1',
-      //       'srchwrd': '행운2길'
-      //     },
-      //     dataType: 'xml',
-      //     success: writeTour,
-      //     error: function (xhr, status, msg) {
-      //       alert("상태: " + status + " 메세지: " + msg);
-      //     }
-      //   });
-      //
-      // });
-      //
-      // function writeTour (xhr) {
-      //   // var obj = JSON.parse(xhr);
-      //   // for(i in obj) {
-      //   //   $('<p>').html(obj.item[i]).appendTo('.content');
-      //   // }
-      //   alert(xhr);
-      // }
-    </script>
-<%--     loginInfo : ${loginInfo.id}
-    <br>
-    <br>
-    <%
-    MemberDto loginInfo = (MemberDto) session.getAttribute("loginInfo");
-    %>
-    loginfInfo from index: <%=loginInfo.getId() %>
-    <br>
-    	이거는 나중에 지워야 함
-    <br> --%>
     
 	<div class="container-fluid" style="margin-top: 30px;">
 		<c:forEach items="">
@@ -186,7 +182,7 @@
 			<div class="container-fluid gpic-wrapper">
 				<div class="gpic">
 					<div class="gpic-img">
-						<img src="${root}/img/gpic-cloud.jpg" style="width:300px;">
+						<img src="${root}/img/gpic-cloud.jpg" style="width: 300px;">
 					</div>
 				</div>
 				<div>
