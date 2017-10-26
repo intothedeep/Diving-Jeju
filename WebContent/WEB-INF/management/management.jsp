@@ -52,12 +52,12 @@ String root = request.getContextPath();
 	<template id="list_template">
 		<tr>
 		  
-		  <td>{{fileSeq}}</td>
+		  <td>{{originalFileAseq}}</td>
 		  
 		  <td>
-		  	<button type="button" class="btn btn-success download" data-fileSeq="{{fileSeq}}"> 다운</button>
-		  	<button type="button" class="btn btn-warning modify" data-fileSeq="{{fileSeq}}"> 수정</button>
-		  	<button type="button" class="btn btn-danger delete" data-fileSeq="{{fileSeq}}"> 삭제</button>
+		  	<button type="button" class="btn btn-success download" data-fileSeq="{{originalFileAseq}}"> 다운</button>
+		  	<button type="button" class="btn btn-warning modify" data-fileSeq="{{originalFileAseq}}"> 수정</button>
+		  	<button type="button" class="btn btn-danger delete" data-fileSeq="{{originalFileAseq}}"> 삭제</button>
 		  </td>
 		  
 		  <td>
@@ -151,7 +151,7 @@ $(document).ready(function () {
 	    var uploadConfirm = confirm(uploadFileName + "을 수정 하시겠습니까?");
 	    
 	    if (uploadConfirm == true) {
-			$('#fileForm').attr("action", "${root}/file/modify.html").submit();
+			$('#fileForm').attr("action", "${root}/album/modify.html").submit();
 	    } 
 	    else {
 	    	inputFile.val('');
@@ -168,7 +168,7 @@ $(document).ready(function () {
 	    $.ajax({
 	    	type:"get",
 	    	dataType: "json",
-	    	url: "${root}/file/deleteupdatetoone",
+	    	url: "${root}/album/deleteupdatetoone",
 	    	data: seqObj,
 			contentType : 'application/json',
 			mimeType : 'application/json',
@@ -190,7 +190,7 @@ $(document).ready(function () {
 	    $.ajax({
 	    	type:"get",
 	    	dataType: "json",
-	    	url: "${root}/file/returnfilename",
+	    	url: "${root}/album/returnfilename",
 	    	data: {"fileName": uploadFileName},
 	    	success: function (data) {
 	    		$('#showFileName').text(" | " + data.fileName);
@@ -215,7 +215,7 @@ $(document).ready(function () {
 	    var uploadConfirm = confirm(uploadFileName + "을 업로드 하시겠습니까?");
 	    
 	    if (uploadConfirm == true) {
-			$('#fileForm').attr("action", "${root}/file/upload.html").submit();
+			$('#fileForm').attr("action", "${root}/album/upload.html").submit();
 	    } 
 	    else {
 	    	inputFile.val('');
@@ -232,11 +232,11 @@ $(document).ready(function () {
 	});
 	var summernoteContent = $('#summernote').summernote('code');
 	
-	var bcodeObj = {bcode:1};
+	var bcodeObj = {bcode:4};
 	$.ajax({
 		type: "get",
 		dataType: "json",
-		url: "${root}/file/list",
+		url: "${root}/album/list",
 		data: bcodeObj,
 		contentType : 'application/json;charset=utf-8',
 		mimeType : 'application/json',
@@ -266,7 +266,7 @@ $(document).ready(function () {
 				alert("실패야!");
 			}
 		}); */
-		$(location).attr("href", "${root}/file/download.html?fileSeq=" + seq);
+		$(location).attr("href", "${root}/album/download.html?fileSeq=" + seq);
 	});
 });
 
@@ -275,7 +275,7 @@ function callFileList (data) {
 	$.ajax({
 		type: "get",
 		dataType: "json",
-		url: "${root}/file/list",
+		url: "${root}/album/list",
 		data: data,
 		contentType : 'application/json;charset=utf-8',
 		mimeType : 'application/json',

@@ -19,4 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             guestSeq = #{guestSeq}
             
     </select>
+    
+    <select id="hotGuesthouse" resultType="albumDto">
+        select * from album where aseq >= 25 and deleted != 1
+    </select>
 </mapper>

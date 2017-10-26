@@ -1,5 +1,5 @@
 $(document).ready(function (){
-
+	
 	$('.freeboardlist').click(function() {
 		var mvlist = root + '/freeboard/list.html?bcode=1&pg=1&key=&word=&hot=';
 		$(location).attr('href', mvlist).submit();
@@ -53,17 +53,4 @@ $(document).ready(function (){
 	    	//$(location).attr({"href": root +"/member/memberinfo.html"});
 	    	$(location).attr("href", root +"/member/memberinfo.html");
 	    }); */
-    
-    //인기 게스트하우스 리스트 뿌리기
-	$.ajax({
-		url: root + "/guesthouse/hotGuesthouseList",
-		type: "get",
-		dataType: "json",
-		success: hotGuestList
-	});
-    
-    function hotGuestList(data) {
-    	//alert("성공");
-    }
-	    
 });

@@ -25,4 +25,6 @@ public interface BoardCommonDao {
 	void updateHit(int seq, MemberDto loginInfo);
 	MemberDto updateLoginInfo(MemberDto loginInfo);
 	
+	int getNextAseq();
+
 }

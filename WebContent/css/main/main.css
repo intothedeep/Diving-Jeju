@@ -36,19 +36,3 @@ div {
 /* 		border: 1px solid green;
 */	}
 
-.gpic-img {
-	display: inline-block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-}
-.gpic {
-	position: relative;
-	vertical-align: middle;
-	height: 400px;
-    
-}
-.gpic-wrapper {
-    text-align: center;
-}

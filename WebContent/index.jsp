@@ -6,12 +6,13 @@
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 
 <%
-/* MemberDto memberDto = new MemberDto();
+MemberDto memberDto = new MemberDto();
 memberDto.setName("admin");
 memberDto.setId("admin");
 memberDto.setPass("123");
 memberDto.setEmail("admin@admin.com");
+memberDto.setMemberType(1);
 
-session.setAttribute("loginInfo", memberDto); */
+session.setAttribute("loginInfo", memberDto);
 response.sendRedirect(request.getContextPath() + "/admin/main.html");
 %>

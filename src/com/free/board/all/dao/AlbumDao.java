@@ -11,4 +11,10 @@ public interface AlbumDao {
 	List<AlbumDto> listArticle(Map<String, String> map);		
 	int modifyArticle(AlbumDto albumDto);
 	int deleteArticle(int seq);
+	
+	void storeFile(AlbumDto albumDto);
+	List<AlbumDto> list(int bcode);
+	AlbumDto getFileInfo(int aseq);
+	
+	void deleteUpdatedToOne(int aseq);
 }

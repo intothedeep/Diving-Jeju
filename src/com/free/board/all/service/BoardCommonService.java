@@ -17,4 +17,7 @@ public interface BoardCommonService {
 
 	void callCommonDaoUpdateHit (int seq, MemberDto loginInfo);
 	MemberDto updateLoginInfo(MemberDto loginInfo);
+	
+	int getNextAseq();
+
 }

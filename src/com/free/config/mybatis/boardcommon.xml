@@ -59,5 +59,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         from board
         where seq = #{seq}
     </select>
-
+    
+    <select id="getNextAseq" resultType="int">
+        select album_SEQ.nextval
+        from dual
+    </select>
 </mapper>

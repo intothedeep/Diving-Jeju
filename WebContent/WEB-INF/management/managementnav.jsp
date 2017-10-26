@@ -45,8 +45,5 @@ nav ul a:hover {
 			<%@ include file="/common/loginnav.jsp"%>
         </div>
                
-
       </div>
-    </nav>
-    	<script src="${root}/js/common/loginnav.js"></script>
-    
+    </nav>    

@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ include file="/common/root.jsp"%>
+<% String root = request.getContextPath();%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <c:set var="root" value="${pageContext.request.contextPath}"/>   
@@ -23,7 +24,10 @@
     
     <link rel="stylesheet" href="${root}/css/main/main.css">
     <link rel="stylesheet" href="${root}/css/main/nav.css">
-    
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
     <script src="${root}/js/main/main.js"></script>
     
  	<title>제주도 여행!</title>
@@ -114,181 +118,46 @@
   	border: 1px green solid;
   }
 </style> -->
-
-  
-  
-  <div class="container" style="margin-top: 30px;">
-    <c:forEach var = "i" begin = "1" end = "7">
-	
-	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding: 0px;">
-		<div class="panel panel-default" style=" margin-right: 3%; margin-left: 3%;">
-		
-			<a href="#">
-				<div class="panel-heading" style="padding: 0px;">
-					<img src="${root}/img/freedive boracai.jpg" style="width: 100%;">
-				</div>
-			</a>
-			<div class="panel-body" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-				<p>
-					나쁜토끼게스트하우스 
-				</p>
-				<p>
-					디테일한 묘사
-				</p> 
-			</div>
+	<template id="hotGuesthouse_template">
 			
-			<div class="panel-footer" style="height: 40px; padding: 5px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-				<div class="col-xs-8" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-					00명 추천
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding: 0px;">
+			<div class="panel panel-default" style=" margin-right: 3%; margin-left: 3%;">
+			
+				<a href="#">
+					<div class="panel-heading" style="padding: 0px;">
+						<img src="<%=root%>/upload/thumb/{{thumbStoredFileName}}" style="width: 100%;">
+					</div>
+				</a>
+				<div class="panel-body" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+					<p>
+						나쁜토끼게스트하우스 
+					</p>
+					<p>
+						디테일한 묘사
+					</p> 
 				</div>
-				<div class="col-xs-4" style="text-align: right; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-					<a href="#">
-						<span class="glyphicon glyphicon-thumbs-up" style="color: red; font-size: 12px;"></span>
-					</a>
+				
+				<div class="panel-footer" style="height: 40px; padding: 5px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+					<div class="col-xs-8" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+						00명 추천
+					</div>
+					<div class="col-xs-4" style="text-align: right; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+						<a href="#">
+							<span class="glyphicon glyphicon-thumbs-up" style="color: red; font-size: 12px;"></span>
+						</a>
+						
+					</div>
 					
 				</div>
 				
 			</div>
-			
 		</div>
-	</div>
-			
-  	</c:forEach>	
-  </div>
+	</template>
   
   
-  
-  <div class="container" style="margin-top: 15px;">
-    
-	<div class="container-fluid" style="margin-top: 30px;">
-		<c:forEach items="">
-		</c:forEach>
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<a href="#" class="main_guesthouse_img" data-guestSeq="${guesthouse.guestSeq}">
-							<img src="${root}/img/gpic-nubville.jpg" style="height: 300px;">
-						</a>
-					</div>
-				</div>
-				<div>
-					넙빌레 게스트 하우스
-				</div>
-			</div>
-		</div>
-	
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/gpic-cloud.jpg" style="width: 300px;">
-					</div>
-				</div>
-				<div>
-					구름게스트하우스
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/gpic-badrabbit.jpg" style="width:300px;">
-					</div>
-				</div>
-				<div>
-					나쁜토끼게스트하우스
-				</div>
-			</div>
-		</div>
+	<div id="hotbody" class="container" style="margin-top: 30px;">
 
 	</div>
-
-	<div class="container-fluid" style="margin-top: 30px;">
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/gpic-dalparan.jpg" style="width:300px;">
-					</div>
-				</div>
-				<div>
-					달파란게스트하우스
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/gpic-elmar.jpg" style="width:300px;">
-					</div>
-				</div>
-				<div>
-					엘마르게스트하우스
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/gpic-ollebut.jpg" style="width:300px;">
-					</div>
-				</div>
-				<div>
-					올레벗게스트하우스
-				</div>
-			</div>
-		</div>
-	</div>	
-	
-	<div class="container-fluid" style="margin-top: 30px;">
-		투어!!!!!!!!!!!!!!!!!!!!11111
-	</div>
-
-	<div class="container-fluid" style="margin-top: 30px;">
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/Freediving-Freedive-Adventure-Photography-05.jpg" style="width:300px;">
-					</div>
-				</div>
-				<div>
-					몰디브 프리다이브
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/freedive silfra tour.png" style="width:300px;">
-					</div>
-				</div>
-				<div>
-					실프라 투어!!!
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 col-sm-12 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/freedive moalboal.jpg" style="width:300px;">
-					</div>
-				</div>
-				<div>
-					모알보알
-				</div>
-			</div>
-		</div>
-	</div>	
-
-  </div>
-
 
 	<div class="container main-footer main-footer--white" style="margin-top: 50px;">
 		<article class="menubox col-sm-offset-11">
@@ -319,5 +188,30 @@
 		</footer>
 	</div>
 </div>
+
+<script>
+$(document).ready(function (){
+	
+	//인기 게스트하우스 리스트 뿌리기
+	$.ajax({
+		url: root + "/guesthouse/hotGuesthouseList",
+		type: "get",
+		dataType: "json",
+		success: hotGuestList
+	});
+	
+});
+
+function hotGuestList(lists) {
+	//리스트 바디에 템블릿 붙이는 법
+	var hotbody = $('#hotbody');
+	hotbody.empty();
+	var template = $('#hotGuesthouse_template').html();
+	$.each(lists, function(i, albumDto) {
+		hotbody.append(Mustache.render(template, albumDto));
+	});
+}
+</script>
+
 </body>
 </html>

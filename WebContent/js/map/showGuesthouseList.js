@@ -95,21 +95,24 @@ function createGuesthouseMarker(coords, data) {
     	//인포 윈도으룰 mustache.js를 통해 설계 해보자! ????
     	
         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+    	let infoContent = 
+    		'<div style="">'
+    		+ data.name
+    		+ '<br>'
+    		+ data.addr2
+    		+ '<br>'
+    		+ data.checkin
+    		+ '<br>'
+    		+ data.checkout
+    		+ '<br>'
+    		+ data.tel
+    		+ '<br>'
+    		+ data.more
+    		+ '<br>'
+    		+ '<a href="' + root + '/guesthouse/blog_guesthouse.html?guestSeq=' + data.guestSeq + '">블로그로!</a>'
+    		+ '</div>';
     	
-    	guesthouseInfowindow.setContent(
-    			'<div style="">'
-        		+ data.name
-        		+ '<br>'
-        		+ data.addr2
-        		+ '<br>'
-        		+ data.checkin
-        		+ '<br>'
-        		+ data.checkout
-        		+ '<br>'
-        		+ data.tel
-        		+ '<br>'
-        		+ data.more
-        		+ '</div>');
+    	guesthouseInfowindow.setContent(infoContent);
     	guesthouseInfowindow.open(map, marker);
     });
     
