@@ -195,7 +195,7 @@ div{
               </li>
             </ul>
 
-<%@ include file="/common/loginnav.jsp"%>
+			<%@ include file="/common/loginnav.jsp"%>
             
         </div>
       </div>
@@ -203,7 +203,7 @@ div{
   </div>
   
 <!--freeboard header -->
-			<header>
+			<header class="container">
 				<h1><strong>자유게시판</strong></h1>
 			</header>
 <!--freeboard content-->

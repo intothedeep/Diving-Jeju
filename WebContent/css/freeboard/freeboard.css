@@ -35,8 +35,8 @@ header {
   min-width: 660px;
   margin-top: 20px;
   margin-bottom: .3%;
-  border-bottom: 3px solid black;
-}
+/*  border-bottom: 3px solid black;
+*/}
 
 .content {
   width: 94%;
@@ -224,11 +224,7 @@ div.writebtn-wrapper {
 
 
 
-/* �� �� ��� */
-body, button, input, select, table, textarea {
-    font-family: "Apple SD Gothic Neo","����",Gulim,Tahoma,Geneva,sans-serif;
-    font-size: 12px;
-}
+
 
 .mydocWrap {
     display: block;

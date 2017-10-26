@@ -71,4 +71,9 @@ public class BoardCommonServiceImpl implements BoardCommonService {
 		return null;
 	}
 
+	@Override
+	public int getNextAseq() {
+		return sqlSession.getMapper(BoardCommonDao.class).getNextAseq();
+	}
+
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.free.board.all.model.AlbumDto;
 import com.free.guesthouse.model.GuesthouseDto;
 import com.free.guesthouse.service.GuesthouseService;
 
@@ -48,9 +49,9 @@ public class GuesthouseController {
 			produces=MediaType.APPLICATION_JSON_UTF8_VALUE,
 			method=RequestMethod.GET)
 	@ResponseBody
-	public List<GuesthouseDto> hotGuesthouseList() {
-		List<GuesthouseDto> list = new ArrayList<>();
-		list.add(new GuesthouseDto());
+	public List<AlbumDto> hotGuesthouseList() {
+		List<AlbumDto> list = new ArrayList<>();
+		list = guesthouseService.hotGuesthouse();
 		return list;
 	}
 	
