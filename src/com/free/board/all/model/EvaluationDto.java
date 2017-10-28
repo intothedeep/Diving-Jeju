@@ -1,6 +1,6 @@
 package com.free.board.all.model;
 
-public class EvaluationDto {
+public class EvaluationDto extends AlbumDto {
 	private int eseq;
 	private int score;
 	public int getEseq() {

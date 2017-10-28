@@ -5,11 +5,6 @@ $(document).ready(function (){
 		$(location).attr('href', mvlist).submit();
 	});
 
-	$('.main_guesthouse_img').click(function () {
-		var guestSeq = $(this).attr('data-guestSeq');
-		$(location).attr("href", root + "/guesthouse/blog_guesthouse.html?guestSeq=15");
-	});
-	
 	//키워드로 검색해서 지도로 이동
 	$('#main_keyword').keypress(function (e) {
 		var keypress = e.which;

@@ -73,10 +73,10 @@
                 <a href="${root}/map/map.html">지도</a>
               </li>
               <li>
-                <a href="#" class="tour">투어</a>
+                <a href="#" class="guesthouse" id="guesthouse">게스트하우스</a>
               </li>
               <li>
-                <a href="#" class="guesthouse" id="guesthouse">게스트하우스</a>
+                <a href="#" class="tour">투어</a>
               </li>
               <li>
               	<a href="#" onclick="return false" class="freeboardlist">자유게시판</a>
@@ -191,8 +191,18 @@
 
 <script>
 $(document).ready(function (){
-	
-	//인기 게스트하우스 리스트 뿌리기
+	$('.main_guesthouse_img').click(function () {
+	var guestSeq = $(this).attr('data-guestSeq');
+		$(location).attr("href", root + "/guesthouse/blog_guesthouse.html?guestSeq=15");
+	});
+	$('.tour').click(function (){
+		$(location).attr("href", root + "/store/tour.html");			
+	});
+	$('#guesthouse').click(function(){
+		$(location).attr("href", root + "/guesthouse/blog_guesthouse.html?guestSeq=15");
+	});
+
+//인기 게스트하우스 리스트 뿌리기
 	$.ajax({
 		url: root + "/guesthouse/hotGuesthouseList",
 		type: "get",

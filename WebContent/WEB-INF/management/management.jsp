@@ -101,7 +101,6 @@ String root = request.getContextPath();
 		
 		<div style="margin-top: 10px;">
 			<button id="uploadBtn" class="btn btn-info"> 업로드</button>
-			<button id="downloadBtn" class="btn btn-alert"> 다운로드 </button>		
 		</div>
 		
 	</div>
@@ -224,13 +223,13 @@ $(document).ready(function () {
 	    }
 	}
 	
-	$('#summernote').summernote({
+/* 	$('#summernote').summernote({
 		  height: 300,                 // set editor height
 		  minHeight: null,             // set minimum height of editor
 		  maxHeight: null,             // set maximum height of editor
 		  focus: true                  // set focus to editable area after initializing summernote
 	});
-	var summernoteContent = $('#summernote').summernote('code');
+	var summernoteContent = $('#summernote').summernote('code'); */
 	
 	var bcodeObj = {bcode:4};
 	$.ajax({
