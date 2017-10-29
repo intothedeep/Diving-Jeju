@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.free.guesthouse.model.GuesthouseDto;
+import com.free.store.model.GuesthouseDto;
 import com.free.map.service.MapService;
 
 @Controller

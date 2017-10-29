@@ -1,5 +1,9 @@
 package com.free.admin.dao;
 
-public interface AdminDao {
+import com.free.member.model.EmailAuthDto;
 
+public interface AdminDao {
+	int insertEmailAuthInfo (EmailAuthDto eaDto);
+	String verifyEmail(String token);
+	void confirmEmail(String email);
 }

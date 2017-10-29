@@ -4,7 +4,7 @@ public class StoreTypeDto {
 	/*
 	 * 0. 기타
 	 * 1. 게스트하우스
-	 * 2. 레저
+	 * 2. tour
 	 * 3. 둘다
 	 * 4. ...
 	*/

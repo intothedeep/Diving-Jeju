@@ -1,5 +1,9 @@
 package com.free.admin.service;
 
-public interface AdminService {
+import com.free.member.model.EmailAuthDto;
 
+public interface AdminService {
+	
+	int insertEmailAuthInfo (EmailAuthDto eaDto);
+	void verifyEmail(String token);
 }

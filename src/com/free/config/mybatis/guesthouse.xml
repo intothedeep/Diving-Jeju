@@ -4,7 +4,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.free.guesthouse.dao.GuesthouseDao">
+<mapper namespace="com.free.store.dao.GuesthouseDao">
     <select id="getGuesthouse" parameterType="int" resultType="guesthouseDto">
         select
             g.GUESTSEQ, g.WIFI, g.CAFE, g.EAT, g.SLEEPTIME, g.CHECKIN, g.CHECKOUT, g.LAUNDRYSERVED, g.MORE, g.STORESEQ,
@@ -20,7 +20,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             
     </select>
     
-    <select id="hotGuesthouse" resultType="albumDto">
-        select * from album where aseq >= 25 and deleted != 1
+    <select id="hotGuesthouse" resultType="hashmap">
+        select *
+        from storeFile f, store s, guesthouse g, member m
+        where 
+            f.storeSeq = s.storeSeq and
+            s.storeSeq = g.storeSeq and
+            s.storeTypeSeq = 1 and
+            s.email = m.email and
+            f.deleted != 1 and
+            f.isTitle = 1
+        order by s.evaluation desc
+    </select>
+    <select id="getPics" parameterType="int" resultType="string">
+        <![CDATA[
+        select storedFileName
+        from(
+            select rownum, storedFileName
+            from storefile f, guesthouse g, store s
+            where
+                g.storeSeq = s.storeSeq and
+                f.storeSeq = s.storeSeq and
+                guestSeq = #{guestSeq}
+            )
+        where rownum <=5
+        ]]>
     </select>
 </mapper>

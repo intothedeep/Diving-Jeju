@@ -22,10 +22,7 @@
 	
 	<script src="${root}/js/guesthouse/guesthouse.js"></script>		
 	<link rel="stylesheet" href="${root}/css/guesthouse/guesthouse.css">
-	
-	<script type="text/javascript" src="${root}/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-	<script type="text/javascript" src="${root}/se2/sample/js/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
-	
+		
  	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e7ca5d8e2c9d5c4f27b2965d6004e5d7&&libraries=services,clusterer,drawing"></script>
 
 	<title>게스트하우스 </title>
@@ -77,7 +74,7 @@
 		/* 사이드 로긴 */
 		.login_side {
 			position: fixed;
-			top: 100px;
+			bottom: 100px;
 			right: 50px;
 			z-index: 1000;
 			background-color: white;
@@ -244,12 +241,13 @@
 
 	<!-- side login -->
 	<div class="login_side">
-<c:if test="${loginInfo == null }">
+		<a href="#top" class="rrr" id="guesthouse_login"><span class="glyphicon glyphicon-user"></span> 예약</a>
+<%-- <c:if test="${loginInfo == null }">
 		<a href="#top" class="rrr" id="guesthouse_login"><span class="glyphicon glyphicon-user"></span> LOGIN</a>
 </c:if>
 <c:if test="${loginInfo != null }">
 		<%@ include file="/common/loginnav.jsp"%>
-</c:if>
+</c:if> --%>
 	</div>
 	
 	<!-- navbar top-none-fixed -->
@@ -316,17 +314,41 @@
 		</div>
 	</div>
 	
-	<!-- content header -->
-	<header class="row">
-		<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-			<div class="container-fluid gpic-wrapper">
-				<div class="gpic">
-					<div class="gpic-img">
-						<img src="${root}/img/gpic-nubville.jpg" style="height: 400px;">
-					</div>
+
+	<header class="container" style="background-color:white;">
+		<!-- content header -->
+	  	<div id="myCarousel" class="carousel slide col-sm-6 col-sm-offset-3" data-ride="carousel" style="background-color:white;">
+	    	<!-- Indicators -->
+	    	<ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="1"></li>
+		      <li data-target="#myCarousel" data-slide-to="2"></li>
+		      <li data-target="#myCarousel" data-slide-to="3"></li>
+		      <li data-target="#myCarousel" data-slide-to="4"></li>
+	    	</ol>
+	
+		    <!-- Wrapper for slides -->
+		    <div class="carousel-inner" style="background-color:white;">
+				<div class="item active" style="background-color:white;">
+		        	<img src="${root }/upload/${pics[0]}" alt="Los Angeles" style="width: 100%;">
 				</div>
-			</div>
-		</div>	
+				<c:forEach items="${pics}" var="pic" begin="1">
+		    	<div class="item">
+		    	    <img src="${root }/upload/${pic}" alt="Los Angeles" style="width: 100%;">
+		      	</div>
+				</c:forEach>
+	    	</div>
+	
+		    <!-- Left and right controls -->
+		    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		      <span class="glyphicon glyphicon-chevron-left"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+		      <span class="glyphicon glyphicon-chevron-right"></span>
+		      <span class="sr-only">Next</span>
+			</a>
+		</div>
 	</header>
 	
 	<!-- content section 1 -->

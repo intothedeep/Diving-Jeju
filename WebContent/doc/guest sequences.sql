@@ -61,6 +61,12 @@ INCREMENT BY 1
 NOMAXVALUE
 NOCACHE;
 
+create sequence storeFile_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE
+NOCACHE;
+
 drop sequence file_upload_seq;
 drop sequence album_SEQ;
 drop sequence board_SEQ;
@@ -81,4 +87,4 @@ drop sequence store_SEQ;
 drop sequence tour_SEQ;
 drop SEQUENCE zip_SEQ;
 drop sequence social_seq;
-
+drop sequence storeFile_seq;

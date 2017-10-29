@@ -1,6 +1,6 @@
 package com.free.store.model;
 
-public class TourDto {
+public class TourDto extends StoreDto {
 	private int tourSeq;
 	private String tourName;
 	private String tourLoc;
