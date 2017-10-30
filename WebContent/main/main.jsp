@@ -117,7 +117,7 @@
   div {
   	border: 1px green solid;
   }
-</style> -->
+</style> -->  
 	<template id="hotList_template">
 			
 		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding: 0px;">
