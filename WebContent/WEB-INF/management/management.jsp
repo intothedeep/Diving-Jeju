@@ -55,13 +55,10 @@ String root = request.getContextPath();
 		  <td>{{originalFileAseq}}</td>
 		  
 		  <td>
-		  	<button type="button" class="btn btn-success download" data-fileSeq="{{originalFileAseq}}"> 다운</button>
-		  	<button type="button" class="btn btn-warning modify" data-fileSeq="{{originalFileAseq}}"> 수정</button>
-		  	<button type="button" class="btn btn-danger delete" data-fileSeq="{{originalFileAseq}}"> 삭제</button>
-		  </td>
-		  
-		  <td>
-		  	{{originalFileName}}
+		  	<button type="button" class="btn btn-xs btn-success download" data-fileSeq="{{originalStoreFileSeq}}"> 다운</button>
+		  	<button type="button" class="btn btn-xs btn-warning modify" data-fileSeq="{{originalStoreFileSeq}}"> 수정</button>
+		  	<button type="button" class="btn btn-xs btn-danger delete" data-fileSeq="{{originalStoreFileSeq}}"> 삭제</button>
+		  	<button class="btn btn-xs btn-default updateTitlePic" data-storeSeq="{{storeSeq}}" data-storeFileSeq="{{storeFileSeq}}"> 메인</button>
 		  </td>
 		  
 		  <td>
@@ -73,6 +70,9 @@ String root = request.getContextPath();
 		  </td>
 		  
 		  <td>{{email}}</td>
+		  <td>
+		  	{{isTitle}}
+		  </td>
 		  
 		</tr>		
 	</template>
@@ -80,14 +80,15 @@ String root = request.getContextPath();
 	
 	
 	<div class="container" style="margin-top: 100px;">
-		<div>
+<%-- 		<div>
 			로그인 이메일 : ${loginInfo.email}
-		</div>
+		</div> --%>
 		<form id="fileForm" method="post" enctype="multipart/form-data" action="">
 			<input id="modify_fileSeq" type="hidden" name="fileSeq" value="">
 			<input type="hidden" name="content" id="content" value="">
-			<div id="summernote"></div>
+			<input type="hidden" name="isTitle" id="isTitle" value="">
 			
+			<div id="summernote"></div>
 			<div class="image-upload">
 			    <label for="file_input">
 			       <a><span class="glyphicon glyphicon-camera"></span>
@@ -97,11 +98,11 @@ String root = request.getContextPath();
 				<label id="showFileName"></label>
 				<input id="file_input" class="btn btn-default form-control" type="file" name="file">
 			</div>
+			메인사진 사용 : <input type="checkbox" id="isMain">
 		</form>
 		
 		<div style="margin-top: 10px;">
 			<button id="uploadBtn" class="btn btn-info"> 업로드</button>
-			<button id="downloadBtn" class="btn btn-alert"> 다운로드 </button>		
 		</div>
 		
 	</div>
@@ -112,10 +113,10 @@ String root = request.getContextPath();
 	      <tr>
 	        <th> | #</th>
 	        <th> | 액션</th>
-	        <th> | 파일명</th>
 	        <th> | 이미지</th>
 	        <th> | 썸네일</th>
 	        <th> | email</th>
+	        <th> | Title</th>
 	      </tr>
 	    </thead>
 	    <tbody id="listBody">
@@ -149,9 +150,16 @@ $(document).ready(function () {
 		var uploadFileName = uploadFileNamePath.slice(uploadFileNamePath.lastIndexOf('\\')+1);
 		
 	    var uploadConfirm = confirm(uploadFileName + "을 수정 하시겠습니까?");
+		
+	    var checked = $('#isMain').is(':checked');
+		if (checked) {
+			$('#isTitle').val(1);
+		} else {
+			$('#isTitle').val(0);
+		}
 	    
 	    if (uploadConfirm == true) {
-			$('#fileForm').attr("action", "${root}/album/modify.html").submit();
+			$('#fileForm').attr("action", "${root}/storeFile/modify.html").submit();
 	    } 
 	    else {
 	    	inputFile.val('');
@@ -168,7 +176,7 @@ $(document).ready(function () {
 	    $.ajax({
 	    	type:"get",
 	    	dataType: "json",
-	    	url: "${root}/album/deleteupdatetoone",
+	    	url: "${root}/storeFile/deleteupdatetoone",
 	    	data: seqObj,
 			contentType : 'application/json',
 			mimeType : 'application/json',
@@ -190,7 +198,7 @@ $(document).ready(function () {
 	    $.ajax({
 	    	type:"get",
 	    	dataType: "json",
-	    	url: "${root}/album/returnfilename",
+	    	url: "${root}/storeFile/returnfilename",
 	    	data: {"fileName": uploadFileName},
 	    	success: function (data) {
 	    		$('#showFileName').text(" | " + data.fileName);
@@ -214,8 +222,15 @@ $(document).ready(function () {
 		
 	    var uploadConfirm = confirm(uploadFileName + "을 업로드 하시겠습니까?");
 	    
-	    if (uploadConfirm == true) {
-			$('#fileForm').attr("action", "${root}/album/upload.html").submit();
+	    var checked = $('#isMain').is(':checked');
+		if (checked) {
+			$('#isTitle').val(1);
+		} else {
+			$('#isTitle').val(0);
+		}
+		
+		if (uploadConfirm == true) {
+			$('#fileForm').attr("action", "${root}/storeFile/upload.html").submit();
 	    } 
 	    else {
 	    	inputFile.val('');
@@ -224,20 +239,18 @@ $(document).ready(function () {
 	    }
 	}
 	
-	$('#summernote').summernote({
+/* 	$('#summernote').summernote({
 		  height: 300,                 // set editor height
 		  minHeight: null,             // set minimum height of editor
 		  maxHeight: null,             // set maximum height of editor
 		  focus: true                  // set focus to editable area after initializing summernote
 	});
-	var summernoteContent = $('#summernote').summernote('code');
+	var summernoteContent = $('#summernote').summernote('code'); */
 	
-	var bcodeObj = {bcode:4};
 	$.ajax({
 		type: "get",
 		dataType: "json",
-		url: "${root}/album/list",
-		data: bcodeObj,
+		url: "${root}/storeFile/list",
 		contentType : 'application/json;charset=utf-8',
 		mimeType : 'application/json',
 		success: function (data) {
@@ -266,7 +279,21 @@ $(document).ready(function () {
 				alert("실패야!");
 			}
 		}); */
-		$(location).attr("href", "${root}/album/download.html?fileSeq=" + seq);
+		$(location).attr("href", "${root}/storeFile/download.html?storeFileSeq=" + seq);
+	});
+	
+	//타이틀 사진으로 바꾸기
+	$(document).on("click", ".updateTitlePic", function () {
+		var storeSeq = $(this).attr("data-storeSeq");
+		var storeFileSeq = $(this).attr("data-storeFileSeq");
+		var data = { "storeSeq":storeSeq, "storeFileSeq":storeFileSeq };
+		console.log(data);
+		
+		$.ajax({
+			type: "get",
+			url: "${root}/storeFile/updateTitlePic/" + storeSeq + "/" + storeFileSeq,
+			success: callFileList
+		});
 	});
 });
 
@@ -275,7 +302,7 @@ function callFileList (data) {
 	$.ajax({
 		type: "get",
 		dataType: "json",
-		url: "${root}/album/list",
+		url: "${root}/storeFile/list",
 		data: data,
 		contentType : 'application/json;charset=utf-8',
 		mimeType : 'application/json',

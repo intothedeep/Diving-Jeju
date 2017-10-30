@@ -16,8 +16,6 @@
 		<config>src/com/free/config/spring/book-servlet.xml</config>
 		<config>src/com/free/config/spring/payment-application.xml</config>
 		<config>src/com/free/config/spring/payment-servlet.xml</config>
-		<config>src/com/free/config/spring/guesthouse-application.xml</config>
-		<config>src/com/free/config/spring/guesthouse-servlet.xml</config>
 		<config>src/com/free/config/spring/boardadmin-application.xml</config>
 		<config>src/com/free/config/spring/boardadmin-servlet.xml</config>
 		<config>src/com/free/config/spring/store-application.xml</config>

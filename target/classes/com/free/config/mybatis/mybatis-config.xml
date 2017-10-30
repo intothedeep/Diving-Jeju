@@ -16,8 +16,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAlias alias="albumDto" type="com.free.board.all.model.AlbumDto"/>
         
         <typeAlias alias="pageNation" type="com.free.util.PageNavigation"/>
-        <typeAlias alias="guesthouseDto" type="com.free.guesthouse.model.GuesthouseDto"/>
-        
+        <typeAlias alias="guesthouseDto" type="com.free.store.model.GuesthouseDto"/>
+        <typeAlias alias="storeFileDto" type="com.free.store.model.StoreFileDto"/>
+        <typeAlias alias="emailAuthDto" type="com.free.member.model.EmailAuthDto"/>
     </typeAliases>
     
     <mappers>
@@ -28,10 +29,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <mapper resource="com/free/config/mybatis/memo.xml"/>
         <mapper resource="com/free/config/mybatis/album.xml"/>
         <mapper resource="com/free/config/mybatis/map.xml"/>
-        
-        
-        <!--        <mapper resource="com/free/config/mybatis/common.xml"/>
---><!--        <mapper resource="com/free/config/mybatis/reboard.xml"/>
--->    </mappers>
+        <mapper resource="com/free/config/mybatis/store.xml"/>
+        <mapper resource="com/free/config/mybatis/admin.xml"/>
+    </mappers>
     
 </configuration>

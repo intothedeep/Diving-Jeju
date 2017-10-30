@@ -8,7 +8,14 @@ public class MemberDto {
 	private String email;
 	private int joinType;
 	private int memberType;
-	
+	private int emailConfirm = 0;
+
+	public int getEmailConfirm() {
+		return emailConfirm;
+	}
+	public void setEmailConfirm(int emailConfirm) {
+		this.emailConfirm = emailConfirm;
+	}
 	public String getId() {
 		return id;
 	}

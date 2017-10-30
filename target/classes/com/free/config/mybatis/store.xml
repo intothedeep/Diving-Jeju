@@ -5,5 +5,65 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.free.store.dao.StoreDao">
+    <select id="getNextStoreFileSeq" resultType="int">
+        select storeFile_SEQ.nextval
+        from dual
+    </select>
     
+    <select id="getStoreSeq" parameterType="string" resultType="int">
+        select storeSeq
+        from store
+        where email = #{email}        
+    </select>
+    
+    <insert id="storeFile" parameterType="storeFileDto">
+        insert into 
+        storeFile (
+            storeFileSeq, storeSeq,
+            originalFileName, storedFileName, storedPath,
+            thumbStoredFileName, thumbStoredPath,
+            deleted, type, isPic, originalStoreFileSeq, isTitle
+        )
+        values(
+            #{storeFileSeq}, #{storeSeq},
+            #{originalFileName}, #{storedFileName}, #{storedPath}, 
+            #{thumbStoredFileName}, #{thumbStoredPath}, 
+            #{deleted}, #{type}, #{isPic}, #{originalStoreFileSeq}, #{isTitle}
+        )
+    </insert>
+    
+    <select id="list" parameterType="map" resultType="storeFileDto">
+        <![CDATA[
+        select *
+        from storeFile f, store s
+        where
+            f.storeSeq = s.storeSeq and
+            s.email = #{email}
+        order by originalStoreFileSeq desc
+        ]]>
+    </select>
+    
+    <select id="getFileInfo" parameterType="int" resultType="storeFileDto">
+        select *
+        from storeFile
+        where storeFileSeq = #{storeFileSeq}
+    </select>
+    
+    <update id="deleteUpdatedToOne" parameterType="int">
+        update storeFile
+        set deleted = 1
+        where storeFileSeq = #{storeFileSeq}
+    </update>
+    
+    <update id="isTitleAllTo0" parameterType="int">
+        update storeFile
+        set isTitle = 0
+        where storeSeq = #{storeSeq}
+    </update>
+    
+    <update id="updateTitlePic" parameterType="int">
+        update storeFile
+        set isTitle = 1
+        where storeFileSeq = #{storeFileSeq}
+    </update>
 </mapper>

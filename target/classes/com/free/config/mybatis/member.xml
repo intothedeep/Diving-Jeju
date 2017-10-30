@@ -20,8 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <insert id="register" parameterType="memberDetailDto">
         insert all
-        into member (EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE)
-            values(#{email}, #{name}, #{pass}, #{id}, #{joinType}, #{memberType})
+        into member (EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, emailConfirm)
+            values(#{email}, #{name}, #{pass}, #{id}, #{joinType}, #{memberType}, #{emailConfirm})
             into member_detail(ADDR1, ADDR2, ZIPCODE, JOINDATE, EMAIL, BIRTH, TEL, GENDER)
             values(#{addr1}, #{addr2}, #{zipcode}, sysdate, #{email}, #{birth}, #{tel}, #{gender})
          select * from dual

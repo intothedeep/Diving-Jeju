@@ -16,4 +16,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where bl.ccode = c.ccode
     </select>-->
     
+    <insert id="insertEmailAuthInfo" parameterType="emailAuthDto">
+        insert into
+        email_auth
+        values(#{email}, #{token})
+    </insert>
+    
+    <select id="verifyEmail" parameterType="string" resultType="string">
+        select email
+        from email_auth
+        where token = #{token}
+    </select>
+    
+    <update id="confirmEmail" parameterType="string">
+        update member
+        set emailConfirm = 1
+        where email = #{email}
+    </update>
+    
 </mapper>

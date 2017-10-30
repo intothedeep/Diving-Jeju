@@ -1,6 +1,7 @@
 package com.free.board.all.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,32 +48,7 @@ public class AlbumServiceImpl implements AlbumService {
 		return 0;
 	}
 
-	@Override
-	public void storeFile(AlbumDto albumDto) {
-		sqlSession.getMapper(AlbumDao.class).storeFile(albumDto);
-	}
-	
-	@Override
-	public void modify(AlbumDto infoForAlbumDtoBeingModified) {
-		sqlSession.getMapper(AlbumDao.class).storeFile(infoForAlbumDtoBeingModified);
-	}
-	
-	@Override
-	public void deleteUpdatedToOne(int aseq) {
-		sqlSession.getMapper(AlbumDao.class).deleteUpdatedToOne(aseq);
-		
-	}	
-	
-	@Override
-	public List<AlbumDto> list(int bcode) {
-		List<AlbumDto> list = sqlSession.getMapper(AlbumDao.class).list(bcode);
-		return list;
-	}
 
-	@Override
-	public AlbumDto getFileInfo(int aseq) {
-		return sqlSession.getMapper(AlbumDao.class).getFileInfo(aseq);
-	}
 
 
 }

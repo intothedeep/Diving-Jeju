@@ -50,13 +50,13 @@
           <div class="">
             <input value="${memberInfo.email}" class="form-control check" id="email" aria-invalid="true" disabled spellcheck="false" type="text" maxlength="30" autocomplete="off" placeholder="email-address" maxlength="">
           </div>
-          <div id="username-errormsg-and-suggestions" class="">
-            <span class="errormsg" id="errormsg_0_email" role="alert">필수 입력란입니다.</span>
-            <div id="EmailAddressExistsError" style="display: none;">
-              이 이메일 주소는 이미 계정으로 등록되었습니다. <a href="#">로그인</a>하거나,
-              또는 비밀번호를 잊은 경우 비밀번호를 <a href="#">재설정</a>하세요.
-            </div>
+	<c:if test="${memberInfo.emailConfirm == 0}">
+          <div id="username-errormsg-and-suggestions" style="text-align: right; padding:3px;">
+            <a href="#" class="email_auth">
+	            <span style="color: #FF0000; font-weight: bold;">메일 인증하기</span>
+            </a>
           </div>
+	</c:if>          
         </div>
 
         <div class="form-group" id="password-form-element">

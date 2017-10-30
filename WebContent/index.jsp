@@ -7,10 +7,10 @@
 
 <%
 MemberDto memberDto = new MemberDto();
-memberDto.setName("admin");
-memberDto.setId("admin");
+memberDto.setName("victor");
+memberDto.setId("victor");
 memberDto.setPass("123");
-memberDto.setEmail("admin@admin.com");
+memberDto.setEmail("victor.taek.lim@gmail.com");
 memberDto.setMemberType(1);
 
 session.setAttribute("loginInfo", memberDto);

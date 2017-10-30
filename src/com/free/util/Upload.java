@@ -10,15 +10,11 @@ import java.util.UUID;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.imgscalr.Scalr;
 import org.imgscalr.Scalr.Method;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.free.board.all.model.AlbumDto;
-import com.free.member.model.MemberDto;
 
 public class Upload {
     public static String getRandomString(){
@@ -81,9 +77,9 @@ public class Upload {
 	    return map;
 	}
 	
-	public static AlbumDto returnAlbumDtoBeingStored (MultipartFile data, HttpServletRequest request) {
+	public static Map<String, String> returnFileInfoBeingStored (MultipartFile data, HttpServletRequest request) {
 		
-		AlbumDto albumDto = new AlbumDto();
+		Map<String, String> infoMap = new HashMap<>();
 		
 		if(!data.isEmpty()) {
 			String originalFileName = data.getOriginalFilename();//a.b.c.jpg
@@ -111,27 +107,25 @@ public class Upload {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
-			albumDto.setBcode(4);
-			albumDto.setOriginalFileName(originalFileName);
-			albumDto.setStoredFileName(storedFileName);
-			albumDto.setStoredPath(storedPath);
+			infoMap.put("originalFileName", originalFileName);
+			infoMap.put("storedFileName", storedFileName);
+			infoMap.put("storedPath", storedPath);
 			
 			if (Upload.checkIsImage (new File(storedPath, storedFileName))) {
 				//Thumbnail 이미지 만드는 함수를 호출 후 썸네일 파일 이름이랑 패스 저장
 				Map <String, String> thumbMap = Upload.saveScaledImage(storedPath, storedFileName);
-				albumDto.setThumbStoredFileName(thumbMap.get("thumbStoredFileName"));
-				albumDto.setThumbStoredPath(thumbMap.get("thumbStoredPath"));
-				albumDto.setIsPic(1);
+				infoMap.put("thumbStoredFileName", thumbMap.get("thumbStoredFileName"));
+				infoMap.put("thumbStoredPath", thumbMap.get("thumbStoredPath"));
+				infoMap.put("isPic", "1");
 			} else {
-				albumDto.setThumbStoredFileName("");
-				albumDto.setThumbStoredPath("");
-				albumDto.setIsPic(0);
+				infoMap.put("thumbStoredFileName", "");
+				infoMap.put("thumbStoredPath", "");
+				infoMap.put("isPic", "0");
 			}
 		} else {
-			albumDto = null;
+			infoMap = null;
 		}
-		return albumDto;
+		return infoMap;
 	}
 	
 	//URLEncoder.encode 했을 때 변환 된 특수 문자 코드를 원래 특수문자로 바꿔주기 // 인코더 안 해주면 다운로드 시 한글 깨짐 

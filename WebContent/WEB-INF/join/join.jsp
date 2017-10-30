@@ -100,7 +100,7 @@
           <div class="input-group">
             <input class="form-control check" id="email" aria-invalid="true" spellcheck="false" type="text" maxlength="30" value="" autocomplete="off" placeholder="email-address" maxlength="">
             <span class="input-group-btn">
-              <button class="btn btn-success"> 이메일 인증 <i class="fa fa-mail-forward spaceLeft"></i></button>
+              <button class="btn btn-success email_auth"> 이메일 인증 <i class="fa fa-mail-forward spaceLeft"></i></button>
             </span>
           </div>
           <div id="username-errormsg-and-suggestions" class="">

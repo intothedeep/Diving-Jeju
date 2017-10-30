@@ -15,7 +15,6 @@ public class AlbumDto extends BoardDto {
 	private int isPic = 1;
 	private int originalFileAseq; // 리스트 불러 올 때 이것을 기준으로 불러온다. 수정 시 fileSeq가 뒤로 밀리는 것을 잡기 위해서
 	
-	
 	public int getOriginalFileAseq() {
 		return originalFileAseq;
 	}

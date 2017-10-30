@@ -36,3 +36,30 @@ div {
 /* 		border: 1px solid green;
 */	}
 
+div.star2 {
+    display: inline-block;
+    CLEAR: both;	
+    PADDING-RIGHT: 0px;	
+    PADDING-LEFT: 0px;	
+    BACKGROUND: url(../img/icon_star2.gif) 0px 0px;	
+    FLOAT: none;	
+    PADDING-BOTTOM: 0px;	
+    MARGIN: 0px;	
+    WIDTH: 90px;	
+    PADDING-TOP: 0px;	
+    HEIGHT: 18px; 
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+    margin-left: 5px;    
+}
+
+p.star1 {
+	PADDING-RIGHT:0px;	
+	PADDING-LEFT: 0px;	
+	BACKGROUND: url(../img/icon_star.gif) 0px 0px;	
+	PADDING-BOTTOM: 0px;	
+	MARGIN: 0px;	
+	PADDING-TOP: 0px;	
+	HEIGHT: 18px;
+}

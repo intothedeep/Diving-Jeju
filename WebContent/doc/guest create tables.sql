@@ -1,6 +1,21 @@
 --테이블에서 컬럼 삭제
 --alter table store drop(aseq);
 
+--storeFile
+create table storeFile(
+	storeFileSeq number,
+	storeSeq number,
+	originalFileName varchar2(255),
+	storedFileName varchar2(255),
+	storedPath varchar2(255),
+	thumbStoredFileName varchar2(255),
+	thumbStoredPath varchar2(255),
+	deleted number default 0,
+	type number default 0,
+	isPic number default 0,
+	originalStoreFileSeq number,
+	isTitle number default 0
+)
 
 -- member_detail
 CREATE TABLE member_detail (
@@ -153,7 +168,14 @@ CREATE TABLE member (
 	pass       varchar2(100) NOT NULL, -- 비밀번호
 	id         varchar2(100) NULL,     -- 아이디
 	jointype   number(1)    NOT NULL, -- 가입소스번호
-	membertype number(1)    NOT NULL  -- 회원구분번호
+	membertype number(1)    NOT NULL,  -- 회원구분번호
+	emailConfirm number(1)  NULL  default 0 -- 이메일 인증 여부
+);
+
+-- email_auth
+create table email_auth (
+    email varchar2(50) not null, -- 이메일
+    token varchar2(255) not null -- 인증토큰
 );
 
 -- member

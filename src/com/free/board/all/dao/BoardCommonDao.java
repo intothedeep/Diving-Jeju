@@ -26,5 +26,4 @@ public interface BoardCommonDao {
 	MemberDto updateLoginInfo(MemberDto loginInfo);
 	
 	int getNextAseq();
-
 }

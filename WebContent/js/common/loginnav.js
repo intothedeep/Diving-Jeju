@@ -1,11 +1,11 @@
 $(document).ready(function () {
-	$('.tour').click(function (){
+/*	$('.tour').click(function (){
 		$(location).attr("href", root + "/store/tour.html");			
-	});
+	});*/
 	
-	$('#guesthouse').click(function(){
+/*	$('#guesthouse').click(function(){
 		$(location).attr("href", root + "/guesthouse/blog_guesthouse.html?guestSeq=15");
-	});
+	});*/
 	
 	$('.stat').click(function (){
 		var mvStat = root + '/stat/stat.html';

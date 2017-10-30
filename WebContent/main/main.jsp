@@ -31,7 +31,7 @@
     <script src="${root}/js/main/main.js"></script>
     
  	<title>제주도 여행!</title>
-	
+
 </head>
 <body>
 <body>
@@ -50,7 +50,7 @@
     		style="padding: 2px; margin-top: auto; margin-bottom: auto;">
 
           <div class="navbar-header">
-            <a class="navbar-brand" href="${root}/admin/main.html">Freedive</a>
+            <a class="navbar-brand" href="${root}/">Freedive</a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -73,10 +73,10 @@
                 <a href="${root}/map/map.html">지도</a>
               </li>
               <li>
-                <a href="#" class="tour">투어</a>
+                <a href="#" class="guesthouse" id="guesthouse">게스트하우스</a>
               </li>
               <li>
-                <a href="#" class="guesthouse" id="guesthouse">게스트하우스</a>
+                <a href="#" class="tour">투어</a>
               </li>
               <li>
               	<a href="#" onclick="return false" class="freeboardlist">자유게시판</a>
@@ -118,36 +118,31 @@
   	border: 1px green solid;
   }
 </style> -->
-	<template id="hotGuesthouse_template">
+	<template id="hotList_template">
 			
 		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding: 0px;">
 			<div class="panel panel-default" style=" margin-right: 3%; margin-left: 3%;">
 			
-				<a href="#">
+				<a class="blog" data-storeType="{{STORETYPESEQ}}" data-guestSeq="{{GUESTSEQ}}" data-storeSeq="{{STORESEQ}}" href="#">
 					<div class="panel-heading" style="padding: 0px;">
-						<img src="<%=root%>/upload/thumb/{{thumbStoredFileName}}" style="width: 100%;">
+						<img src="<%=root%>/upload/{{STOREDFILENAME}}" style="width: 100%; height: 180px;">
 					</div>
 				</a>
 				<div class="panel-body" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-					<p>
-						나쁜토끼게스트하우스 
-					</p>
+					<div style="">   
+						<h4><span class="glyphicon glyphicon-home"></span> {{NAME}} </h4>
+					</div>
 					<p> 
-						디테일한 묘사
+						<span class="glyphicon glyphicon-apple"></span> {{MORE}}
 					</p> 
 				</div>
 				
-				<div class="panel-footer" style="height: 40px; padding: 5px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-					<div class="col-xs-8" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-						00명 추천
+				<div class="panel-footer" style="height: 50px; padding: 5px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+					<div style="display: inline-block; margin-left: 15px; margin-top: 3px; float: left;"> 평점 |</div>
+					<div class="star2 col-xs-8 col-xs-offset-1">
+						<p class="star1" style="width: {{EVALUATION}}%;"></p>
+						<span class="evaluation" style="display: none;">{{EVALUATION}}</span>
 					</div>
-					<div class="col-xs-4" style="text-align: right; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
-						<a href="#">
-							<span class="glyphicon glyphicon-thumbs-up" style="color: red; font-size: 12px;"></span>
-						</a>
-						
-					</div>
-					
 				</div>
 				
 			</div>
@@ -191,24 +186,79 @@
 
 <script>
 $(document).ready(function (){
-	
-	//인기 게스트하우스 리스트 뿌리기
+	$('.main_guesthouse_img').click(function () {
+	var guestSeq = $(this).attr('data-guestSeq');
+		$(location).attr("href", root + "/guesthouse/blog_guesthouse.html?guestSeq=15");
+	});
+	$('.guesthouse').click(function(){
+		hotList("hotGuesthouseList");
+	});
+	$('.tour').click(function (){
+		hotList("hotTourList");
+	});
+
+//인기 게스트하우스 리스트 뿌리기
 	$.ajax({
 		url: root + "/guesthouse/hotGuesthouseList",
 		type: "get",
 		dataType: "json",
+		contentType : 'application/json;charset=utf-8',
+		mimeType : 'application/json',
 		success: hotGuestList
+	});
+//	게스트하우스 사진 클릭하면 블로그로 이동
+	$(document).on("click", ".blog", function () {
+		var type = $(this).attr('data-storeType');
+		if(type == 1) {
+			
+			var guestSeq = $(this).attr('data-guestSeq');
+			$(location).attr("href", root + "/guesthouse/blog_guesthouse.html?guestSeq=" + guestSeq);
+		}
+		else {
+			var storeSeq = $(this).attr('data-storeSeq');
+			$(location).attr("href", root + "/store/blog_tour.html?storeSeq=" + storeSeq);			
+		}
+		
 	});
 	
 });
+
+function hotList(type) {
+	$.ajax({
+		url: root + "/guesthouse/" + type,
+		type: "get",
+		dataType: "json",
+		success: type
+	});
+}
 
 function hotGuestList(lists) {
 	//리스트 바디에 템블릿 붙이는 법
 	var hotbody = $('#hotbody');
 	hotbody.empty();
-	var template = $('#hotGuesthouse_template').html();
-	$.each(lists, function(i, albumDto) {
-		hotbody.append(Mustache.render(template, albumDto));
+	var template = $('#hotList_template').html();
+	
+  	for(x in lists[0]) {
+		console.log(x);
+		console.log(lists[0][x]);
+	}
+/*	
+	for (x in lists) {
+		hotbody.append(Mustache.render(template, lists[x]));					
+	} */
+	$.each(lists, function(i, map) {
+		hotbody.append(Mustache.render(template, map));
+	});
+}
+
+function hotTourList(lists) {
+	//리스트 바디에 템블릿 붙이는 법
+	var hotbody = $('#hotbody');
+	hotbody.empty();
+	var template = $('#hotList_template').html();
+
+	$.each(lists, function(i, map) {
+		hotbody.append(Mustache.render(template, map));
 	});
 }
 </script>
