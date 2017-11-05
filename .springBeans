@@ -12,8 +12,6 @@
 		<config>src/com/free/config/spring/map-servlet.xml</config>
 		<config>src/com/free/config/spring/admin-application.xml</config>
 		<config>src/com/free/config/spring/admin-servlet.xml</config>
-		<config>src/com/free/config/spring/book-application.xml</config>
-		<config>src/com/free/config/spring/book-servlet.xml</config>
 		<config>src/com/free/config/spring/payment-application.xml</config>
 		<config>src/com/free/config/spring/payment-servlet.xml</config>
 		<config>src/com/free/config/spring/boardadmin-application.xml</config>

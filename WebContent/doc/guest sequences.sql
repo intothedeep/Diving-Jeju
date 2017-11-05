@@ -7,15 +7,6 @@ START WITH 1 INCREMENT BY 1 NOCACHE;
 CREATE SEQUENCE book_SEQ
 START WITH 1 INCREMENT BY 1 NOCACHE;
 
-CREATE SEQUENCE book_guest_SEQ
-START WITH 1 INCREMENT BY 1 NOCACHE;
-
-CREATE SEQUENCE book_social_SEQ
-START WITH 1 INCREMENT BY 1 NOCACHE;
-
-CREATE SEQUENCE book_tour_SEQ
-START WITH 1 INCREMENT BY 1 NOCACHE;
-
 CREATE SEQUENCE evaluation_SEQ
 START WITH 1 INCREMENT BY 1 NOCACHE;
 
@@ -71,9 +62,6 @@ drop sequence file_upload_seq;
 drop sequence album_SEQ;
 drop sequence board_SEQ;
 drop sequence book_SEQ;
-drop sequence book_guest_SEQ;
-drop sequence book_social_SEQ;
-drop sequence book_tour_SEQ;
 drop sequence evaluation_SEQ;
 drop sequence guest_social_SEQ;
 drop sequence guesthouse_SEQ;

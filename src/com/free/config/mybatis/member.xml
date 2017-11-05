@@ -6,6 +6,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.free.member.dao.MemberDao">
     
+    <insert id="checkIfKakaoisInDB" parameterType="memberDto">
+        INSERT INTO member (EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, emailConfirm) 
+        SELECT #{email}, #{name}, #{pass}, #{id}, #{joinType}, #{memberType}, #{emailConfirm} 
+        from dual 
+        WHERE NOT EXISTS ( 
+            SELECT * 
+            FROM member 
+            WHERE 
+                email = #{email}
+            )
+    </insert>
+    
     <select id="loginId" parameterType="String" resultType="memberDto">
         select id, name, pass, email
         from member
@@ -20,11 +32,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <insert id="register" parameterType="memberDetailDto">
         insert all
-        into member (EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, emailConfirm)
+            into member (EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, emailConfirm)
             values(#{email}, #{name}, #{pass}, #{id}, #{joinType}, #{memberType}, #{emailConfirm})
             into member_detail(ADDR1, ADDR2, ZIPCODE, JOINDATE, EMAIL, BIRTH, TEL, GENDER)
             values(#{addr1}, #{addr2}, #{zipcode}, sysdate, #{email}, #{birth}, #{tel}, #{gender})
-         select * from dual
+        select * from dual
     </insert>
     
     <select id="getMember" parameterType="String" resultType="memberDetailDto">

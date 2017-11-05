@@ -1,0 +1,117 @@
+html, body {
+  height:100%;
+  margin:0;
+  padding:0;
+  font-size:14px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.rrr {
+	text-decoration: none;
+	font-weight: bold;
+	color: blue;
+	font-size: 20px;
+}
+.rrr:hover {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 23px;
+	color: red;		
+}
+.navbar {
+	box-shadow: 0 0 6px rgba(35, 173, 278, 1);
+	
+}
+section, header {
+	margin-top: 30px;
+}
+
+
+.navbar2 {
+	display: none;
+}
+.blog_title {
+	text-align: center;
+}
+.line {
+	border-top: 1px solid lightblue;
+}
+
+/* 사이드 로긴 */
+.login_side {
+	position: fixed;
+	bottom: 100px;
+	right: 50px;
+	z-index: 1000;
+	background-color: white;
+	
+}
+.login_side:hover {
+	box-shadow: 0 0 6px rgba(35, 173, 278, 1);
+}
+
+/* 사진  */
+.gpic-img {
+	display: inline-block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.gpic {
+	position: relative;
+	vertical-align: middle;
+	height: 400px;
+    
+}
+.gpic-wrapper {
+    text-align: center;
+}
+
+/* section */
+.content {
+     clear: both;
+}
+.content_head {
+    margin-top: 15px;
+    padding-left: 30px;
+}
+.content_body1 {
+    margin-top: 5px;
+    padding-left: 70px;
+	font-size: 15px;
+}
+.content_body2 {
+    margin-top: 10px;
+    margin-bottom: 10px;	    
+	text-align:center;    
+}
+.content_body4 {
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#guestMap {
+    margin-top: 10px;	    
+	width:90%;
+	height:350px;
+	display:inline-block;	    
+}
+
+/* 리뷰  */
+.list-group .list-group-item-text{
+    height: 120px;
+}
+
+/* 사진등록버튼  */
+.image-upload > input
+{
+    display: none;
+}
+.image-upload a:hover {
+	cursor: pointer;
+	text-decoration: none;
+	color: lightblue;
+	font-weight: bold;
+	font-size: 15px;
+}

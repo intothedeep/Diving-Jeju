@@ -16,6 +16,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where email = #{email}        
     </select>
     
+    <select id="getStoreInfoWithGuestSeq" parameterType="int" resultType="storeDto">
+        select *
+        from guesthouse g, store s, member m
+        where 
+        g.storeSeq = s.storeSeq and
+        s.email = m.email and
+        guestSeq = #{guestSeq}        
+    </select>
+    
     <insert id="storeFile" parameterType="storeFileDto">
         insert into 
         storeFile (

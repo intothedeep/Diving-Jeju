@@ -22,4 +22,6 @@ public interface MemberService {
 	
 	int delete(String id);
 	
+	int checkIfKakaoisInDB(MemberDto memberDto);
+	
 }
