@@ -30,6 +30,7 @@ String root = request.getContextPath();
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 	
 	<link rel="stylesheet" href="${root}/css/join/join.css">
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	
 	<title>관리</title>
 

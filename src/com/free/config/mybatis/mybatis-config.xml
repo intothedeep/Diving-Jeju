@@ -18,11 +18,20 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAlias alias="pageNation" type="com.free.util.PageNavigation"/>
         <typeAlias alias="guesthouseDto" type="com.free.store.model.GuesthouseDto"/>
         <typeAlias alias="storeFileDto" type="com.free.store.model.StoreFileDto"/>
+        <typeAlias alias="storeDto" type="com.free.store.model.StoreDto"/>
         <typeAlias alias="emailAuthDto" type="com.free.member.model.EmailAuthDto"/>
+        <typeAlias alias="bookDto" type="com.free.payment.model.BookDto"/>
+    <!--        
+        <typeAlias alias="emailAuthDto" type="com.free.payment.model.EmailAuthDto"/>
+        <typeAlias alias="emailAuthDto" type="com.free.payment.model.EmailAuthDto"/>
+        <typeAlias alias="emailAuthDto" type="com.free.payment.model.EmailAuthDto"/>
+ -->       
     </typeAliases>
     
     <mappers>
         <mapper resource="com/free/config/mybatis/member.xml"/>
+        <mapper resource="com/free/config/mybatis/payment.xml"/>
+        <mapper resource="com/free/config/mybatis/book.xml"/>
         <mapper resource="com/free/config/mybatis/freeboard.xml"/>
         <mapper resource="com/free/config/mybatis/boardcommon.xml"/>
         <mapper resource="com/free/config/mybatis/guesthouse.xml"/>

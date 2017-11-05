@@ -66,4 +66,10 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int checkIfKakaoisInDB(MemberDto memberDto) {
+		return sqlSession.getMapper(MemberDao.class).checkIfKakaoisInDB(memberDto);
+
+	}
 }

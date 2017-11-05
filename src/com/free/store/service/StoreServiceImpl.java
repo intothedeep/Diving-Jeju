@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.free.store.dao.StoreDao;
+import com.free.store.model.StoreDto;
 import com.free.store.model.StoreFileDto;
 
 @Service
@@ -65,5 +66,10 @@ public class StoreServiceImpl implements StoreService {
 		StoreDao storeDao = sqlSession.getMapper(StoreDao.class);
 		storeDao.isTitleAllTo0(storeSeq);
 		storeDao.updateTitlePic(storeFileSeq);
+	}
+
+	@Override
+	public StoreDto getStoreInfoWithGuestSeq(int guestSeq) {
+		return sqlSession.getMapper(StoreDao.class).getStoreInfoWithGuestSeq(guestSeq);
 	}
 }

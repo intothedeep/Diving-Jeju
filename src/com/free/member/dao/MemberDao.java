@@ -23,4 +23,7 @@ public interface MemberDao {
 	
 	int delete(String id);
 	
+	int checkIfKakaoisInDB(MemberDto memberDto);
+
+	
 }

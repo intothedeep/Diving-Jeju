@@ -1,16 +1,22 @@
 package com.free.member;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +39,24 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@RequestMapping(value="/loginWithKakao", method=RequestMethod.GET)
+	@ResponseBody
+	public Map<String, String> loginWithKakao(@ModelAttribute MemberDto memberDto, HttpSession session, HttpServletResponse response) {
+		response.setContentType("application/x-www-form-urlencoded;charset=UTF-8");
+		memberDto.setId(memberDto.getName());
+		memberDto.setJoinType(5); //5: 카카오 통해 가입
+		memberDto.setMemberType(1); //3: 일반사용자
+		memberDto.setPass("123");
+		//카카오회원 싸이트 DB 확인 후 있으면 업데이트 없으면 인서트
+		session.setAttribute("loginInfo", memberDto);
+		int count = memberService.checkIfKakaoisInDB(memberDto);
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("status", count + "");
+		
+		return map;
+	}
 	
 	@RequestMapping(value="/register.html", method=RequestMethod.GET)
 	public String register() {

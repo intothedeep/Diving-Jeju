@@ -3,6 +3,7 @@ package com.free.store.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.free.store.model.StoreDto;
 import com.free.store.model.StoreFileDto;
 
 public interface StoreDao {
@@ -14,7 +15,8 @@ public interface StoreDao {
 	
 	int getNextStoreFileSeq();
 	int getStoreSeq(String email);
-	
+	StoreDto getStoreInfoWithGuestSeq(int guestSeq);
+
 	void isTitleAllTo0(int storeSeq);
 	void updateTitlePic(int storeFileSeq);
 }

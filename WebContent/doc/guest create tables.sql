@@ -215,25 +215,6 @@ ALTER TABLE store
 			storeseq -- 스토어 등록번호
 		);
 
--- book_guest
-CREATE TABLE book_guest (
-	bookguesthouseseq number       NOT NULL, -- 게스트하우스 예약번호
-	startbookdate     DATE         NULL,     -- 투숙시작날짜
-	endbookdate       DATE         NULL,     -- 투숙마지막날짜
-	roomseq           number       NOT NULL, -- 객실등록번호
-	email             varchar2(50) NOT NULL, -- 이메일
-	guestseq          number       NOT NULL, -- 게스트하우스 등록번호
-	bookseq           number       NOT NULL  -- 예약번호
-);
-
--- book_guest
-ALTER TABLE book_guest
-	ADD
-		CONSTRAINT PK_book_guest -- book_guest Primary key
-		PRIMARY KEY (
-			bookguesthouseseq -- 게스트하우스 예약번호
-		);
-
 -- join_type
 CREATE TABLE join_type (
 	jointype       number(1)     NOT NULL, -- 가입소스번호
@@ -251,12 +232,9 @@ ALTER TABLE join_type
 -- evalation
 CREATE TABLE evaluation (
 	eseq              number    NOT NULL, -- 후기번호
-	storeseq          number    NOT NULL, -- 스토어 등록번호
-	bookguesthouseseq number    NOT NULL, -- 게스트하우스 예약번호
 	score             number(1) DEFAULT 5, -- 후기점수
 	aseq              number    NULL,     -- 사진게시판 글번호
-	booksocialseq     number    NULL,     -- 소셜예약번호
-	booktourseq       number    NULL      -- 투어예약번호
+	bookseq       number    NULL      -- 투어예약번호
 );
 
 -- evalation
@@ -270,9 +248,14 @@ ALTER TABLE evaluation
 -- book
 CREATE TABLE book (
 	bookseq     number NOT NULL, -- 예약번호
-	whenbook    DATE   DEFAULT sysdate, -- 예약한날짜
+    whenbook    DATE   DEFAULT sysdate, -- 예약한날짜
+	startbookdate     DATE         NULL,     -- 투숙시작날짜
+    endbookdate       DATE         NULL,     -- 투숙마지막날짜
 	numofpeople number NULL,     -- 예약인원
-	payseq      number NOT NULL  -- 결제번호
+	roomType varchar2(255) not null, -- 방종류
+	email             varchar2(255) NOT NULL, -- 이메일
+	payseq      number NOT NULL,  -- 결제번호
+	storeseq    number        NOT NULL  -- 스토어 등록번호	
 );
 
 -- book
@@ -422,21 +405,6 @@ ALTER TABLE refund
 			refundseq -- 환불번호
 		);
 
--- book_tour
-CREATE TABLE book_tour (
-	booktourseq number NOT NULL, -- 투어예약번호
-	tourseq  number NOT NULL, -- 투어번호
-	bookseq     number NOT NULL  -- 예약번호
-);
-
--- book_tour
-ALTER TABLE book_tour
-	ADD
-		CONSTRAINT PK_book_tour -- book_tour Primary key
-		PRIMARY KEY (
-			booktourseq -- 투어예약번호
-		);
-
 -- guest_social
 CREATE TABLE guest_social (
 	socialseq       number        NOT NULL, -- 소셜번호
@@ -501,21 +469,6 @@ ALTER TABLE store_type
 		CONSTRAINT PK_store_type -- store_type Primary key
 		PRIMARY KEY (
 			storetypeseq -- 스토어구분번호
-		);
-
--- book_social
-CREATE TABLE book_social (
-	booksocialseq number NOT NULL, -- 소셜예약번호
-	socialseq     number NOT NULL, -- 소셜번호
-	bookseq       number NOT NULL  -- 예약번호
-);
-
--- book_social
-ALTER TABLE book_social
-	ADD
-		CONSTRAINT PK_book_social -- book_social Primary key
-		PRIMARY KEY (
-			booksocialseq -- 소셜예약번호
 		);
 
 -- member_detail
@@ -661,48 +614,15 @@ ALTER TABLE book_guest
 			roomseq -- 객실등록번호
 		);
 
--- book_guest
-ALTER TABLE book_guest
+-- book
+ALTER TABLE book
 	ADD
-		CONSTRAINT FK_member_TO_book_guest -- member -> book_guest
+		CONSTRAINT FK_member_TO_book -- member -> book
 		FOREIGN KEY (
 			email -- 이메일
 		)
 		REFERENCES member ( -- member
 			email -- 이메일
-		);
-
--- book_guest
-ALTER TABLE book_guest
-	ADD
-		CONSTRAINT FK_guesthouse_TO_book_guest -- guesthouse -> book_guest
-		FOREIGN KEY (
-			guestseq -- 게스트하우스 등록번호
-		)
-		REFERENCES guesthouse ( -- guesthouse
-			guestseq -- 게스트하우스 등록번호
-		);
-
--- book_guest
-ALTER TABLE book_guest
-	ADD
-		CONSTRAINT FK_book_TO_book_guest -- book -> book_guest
-		FOREIGN KEY (
-			bookseq -- 예약번호
-		)
-		REFERENCES book ( -- book
-			bookseq -- 예약번호
-		);
-
--- evalation
-ALTER TABLE evaluation
-	ADD
-		CONSTRAINT FK_store_TO_evaluation -- store -> evalation
-		FOREIGN KEY (
-			storeseq -- 스토어 등록번호
-		)
-		REFERENCES store ( -- store
-			storeseq -- 스토어 등록번호
 		);
 
 -- evalation
@@ -714,39 +634,16 @@ ALTER TABLE evaluation
 		)
 		REFERENCES album ( -- album
 			aseq -- 사진게시판 글번호
-		);
 
 -- evalation
 ALTER TABLE evaluation
 	ADD
-		CONSTRAINT FK_book_social_TO_evaluation -- book_social -> evalation
+		CONSTRAINT FK_book_TO_evaluation -- book -> evalation
 		FOREIGN KEY (
-			booksocialseq -- 소셜예약번호
+			bookseq --  예약번호
 		)
-		REFERENCES book_social ( -- book_social
-			booksocialseq -- 소셜예약번호
-		);
-
--- evalation
-ALTER TABLE evaluation
-	ADD
-		CONSTRAINT FK_book_tour_TO_evaluation -- book_tour -> evalation
-		FOREIGN KEY (
-			booktourseq -- 투어예약번호
-		)
-		REFERENCES book_tour ( -- book_tour
-			booktourseq -- 투어예약번호
-		);
-
--- evalation
-ALTER TABLE evaluation
-	ADD
-		CONSTRAINT FK_book_guest_TO_evaluation -- book_guest -> evalation
-		FOREIGN KEY (
-			bookguesthouseseq -- 게스트하우스 예약번호
-		)
-		REFERENCES book_guest ( -- book_guest
-			bookguesthouseseq -- 게스트하우스 예약번호
+		REFERENCES book ( -- book
+			bookseq --  예약번호
 		);
 
 -- book
@@ -837,39 +734,6 @@ ALTER TABLE refund
 			payseq -- 결제번호
 		);
 
--- book_tour
-ALTER TABLE book_tour
-	ADD
-		CONSTRAINT FK_tour_TO_book_tour -- tour -> book_tour
-		FOREIGN KEY (
-			tourseq -- 투어번호
-		)
-		REFERENCES tour ( -- tour
-			tourseq -- 투어번호
-		);
-
--- book_tour
-ALTER TABLE book_tour
-	ADD
-		CONSTRAINT FK_book_TO_book_tour -- book -> book_tour
-		FOREIGN KEY (
-			bookseq -- 예약번호
-		)
-		REFERENCES book ( -- book
-			bookseq -- 예약번호
-		);
-
--- guest_social
-ALTER TABLE guest_social
-	ADD
-		CONSTRAINT FK_guesthouse_TO_guest_social -- guesthouse -> guest_social
-		FOREIGN KEY (
-			guestseq -- 게스트하우스 등록번호
-		)
-		REFERENCES guesthouse ( -- guesthouse
-			guestseq -- 게스트하우스 등록번호
-		);
-
 -- payment
 ALTER TABLE payment
 	ADD
@@ -903,17 +767,6 @@ ALTER TABLE book_social
 			socialseq -- 소셜번호
 		);
 
--- book_social
-ALTER TABLE book_social
-	ADD
-		CONSTRAINT FK_book_TO_book_social -- book -> book_social
-		FOREIGN KEY (
-			bookseq -- 예약번호
-		)
-		REFERENCES book ( -- book
-			bookseq -- 예약번호
-		);
-		
 -- store
 alter table store
     add

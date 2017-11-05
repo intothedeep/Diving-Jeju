@@ -3,6 +3,7 @@ package com.free.store.service;
 import java.util.List;
 import java.util.Map;
 
+import com.free.store.model.StoreDto;
 import com.free.store.model.StoreFileDto;
 
 public interface StoreService {
@@ -13,6 +14,7 @@ public interface StoreService {
 	
 	int getNextStoreFileSeq();
 	int getStoreSeq(String email);
+	StoreDto getStoreInfoWithGuestSeq(int guestSeq);
 	
 	void deleteUpdatedToOne(int storeFileSeq);
 	void modify(StoreFileDto infoForAlbumDtoBeingModified);

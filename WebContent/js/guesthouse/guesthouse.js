@@ -1,3 +1,85 @@
+// 기본 js
+	
+$(document).ready(function(){
+
+	$(window).scroll(function() {
+	    if ($(document).scrollTop() > 300) {
+	    	$('.navbar1').css("display", "none");
+	      	$('.navbar2').addClass("navbar-fixed-top");
+	      	$('.navbar2').css("display", "block");
+	    } else {
+	    	$('.navbar1').css("display", "");
+	      	$('.navbar2').removeClass("navbar-fixed-top");
+	      	$('.navbar2').css("display", "none");
+	    }
+	});
+	
+	$('.main').click(function () {
+		$(location).attr("href", root +"/admin/main.html");
+	});
+	
+	$('#guest_keyword').keypress(function (e) {
+		var keypress = e.which;
+	    var keyword = document.getElementById('guest_keyword').value;
+	    
+		if(keypress === 13) {
+		    if (!keyword.replace(/^\s+|\s+$/g, '')) {
+		        alert('키워드를 입력해주세요!');
+		        return false;
+		    } else {
+				$('#blog_searchForm').attr("action", root + "/map/search.html").submit();			    	
+		    }
+		}
+	});
+	$('#guest_searchBtn').click(function () {
+	    var keyword = document.getElementById('guest_keyword').value;
+
+	    if (!keyword.replace(/^\s+|\s+$/g, '')) {
+	        alert('키워드를 입력해주세요!');
+	        return false;
+	    } else {
+			$('#blog_searchForm').attr("action", root + "/map/search.html").submit();			    	
+	    } 
+	});
+	
+	$('#guesthouse_login').click(function () {
+		$(location).attr("href", root + "/member/loginid.html")
+	});
+	
+	/* 사이드 로긴 버튼 가로 사이즈에 맞춰서 크기 조절 */
+	$(window).scroll(function() {
+	    var width = $(document).innerWidth();
+	    var height = $(document).scrollTop();
+	    if(height > 301 || width< 700) {
+	    	$('.login_side').hide();
+	    } else {
+	    	$('.login_side').show();
+	    }
+	});
+    $(window).resize(function(){
+/* 			    var w = window.innerWidth;
+			    var h = window.innerHeight; */
+	    var width = $(document).innerWidth();
+	    var height = $(document).scrollTop();
+/* 			    console.log(width);
+ */			    if(width < 700) {
+	    	$('.login_side').hide();
+	    } else {
+	    	$('.login_side').show();
+	    }
+    });
+    
+    /* 사진등록 */
+	$('#pic_upload').click(function () {
+		alert('123');
+
+	});
+    
+});
+		  
+
+
+// 맵 관련
 var guestMap;
 var guestMarkerPosition;
 var guestMarker;

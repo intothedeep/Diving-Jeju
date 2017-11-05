@@ -301,17 +301,27 @@
 <!--freeboard content-->
 			<div class="content">
 				<section class="col-md-9 col-sm-8 col-xs-12">
-<!-- top ad page -->						
-					<div class="container-fluid" style="text-align: center;">
-						<div class="col-md-2 col-sm-2 col-xs-2">
-							<button class="btn btn-default recent" type="button">기본</button>
-							<button class="btn btn-default hotBoard" type="button">HOT</button>
-							<button class="btn btn-default mvmain" type="button">메인</button>
-						</div>
-						<div class="col-md-10 col-sm-10 col-xs-10" style="border:2px solid rgb(240, 240, 240);">
-								광고입니다.!!!
+					<div class="container-fluid" style="margin-top: 1%; margin-bottom: 2%;">
+						<div class="row" style="text-align: center;">
+							<div class="hotchoice col-md-2">
+								<div class="">
+									<button class="btn btn-default recent" type="button">기본</button>
+								</div>
+								<div class="">
+									<button class="btn btn-default hotBoard" type="button">HOT</button>
+								</div>
+								<div class="">
+									<button class="btn btn-default mvmain" type="button">메인</button>
+								</div>
+							</div>
+							<div class="col-md-10" style="border:2px solid black;">
+								<div style="font-size: 5.1em;">
+									광고입니다.!!!
+								</div>
+							</div>
 						</div>
 					</div>
+<!-- top ad page -->						
 							
 					<div class="container-fluid article_subject" style="margin-bottom: 7px;">
 						<h3>

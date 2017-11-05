@@ -12,9 +12,14 @@
     <meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="${root}/fullcalendar/fullcalendar.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
+	<script src="${root}/fullcalendar/lib/moment.min.js"></script>
+	<script src="${root}/fullcalendar/fullcalendar.min.js"></script>
+	
 	<script src="${root}/js/bootstrap.min.js"></script>	
 	<link rel="stylesheet" href="${root}/css/bootstrap readable.min.css">
 	<link rel="stylesheet" href="${root}/css/bootstrap readable.css">
@@ -27,221 +32,15 @@
 
 	<title>게스트하우스 </title>
 	
-	<style>
-		html, body {
-		  height:100%;
-		  margin:0;
-		  padding:0;
-		  font-size:14px;
-		  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-		}
-		
-		.rrr {
-			text-decoration: none;
-			font-weight: bold;
-			color: lightblue;
-		}
-		.rrr:hover {
-			text-decoration: none;
-			font-weight: bold;
-			font-size: 18px;
-			color: lightblue;		
-		}
-
-		div {
-/*   			border: 1px solid green;
- */  		}
-		.navbar {
-/* 			border-bottom: 2px solid black !important;
- */			box-shadow: 0 0 6px rgba(35, 173, 278, 1);
-			
-		}
-		section, header {
-			margin-top: 30px;
-		}
-		
-
-		.navbar2 {
-			display: none;
-		}
-		.blog_title {
-			text-align: center;
-		}
-		.line {
-			border-top: 1px solid lightblue;
-		}
-		
-		/* 사이드 로긴 */
-		.login_side {
-			position: fixed;
-			bottom: 100px;
-			right: 50px;
-			z-index: 1000;
-			background-color: white;
-			
-		}
-		.login_side:hover {
-			box-shadow: 0 0 6px rgba(35, 173, 278, 1);
-		}
-		
-		/* 사진  */
-	    .gpic-img {
-			display: inline-block;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-	    }
-	    .gpic {
-			position: relative;
-			vertical-align: middle;
-			height: 400px;
-	    	
-	    }
-	    .gpic-wrapper {
-	    	text-align: center;
-	    }
-	    
-	    /* section */
-	    .content {
-	    	 clear: both;
-	    }
-	    .content_head {
-	    	margin-top: 15px;
-	    	padding-left: 30px;
-	    }
-	    .content_body1 {
-	    	margin-top: 5px;
-	    	padding-left: 70px;
-			font-size: 15px;
-	    }
-	    .content_body2 {
-	    	margin-top: 10px;
-	    	margin-bottom: 10px;	    
-			text-align:center;    
-	    }
-	    .content_body4 {
-	    	margin-top: 10px;
-	    	padding-left: 30px;
-	    	padding-right: 30px;
-	    }
-	    #guestMap {
-	    	margin-top: 10px;	    
-			width:90%;
-			height:350px;
-			display:inline-block;	    
-	    }
-	    
-	    /* 리뷰  */
-	    .list-group .list-group-item-text{
-	    	height: 120px;
-	    }
-	    
-	    /* 사진등록버튼  */
-	    .image-upload > input
-		{
-		    display: none;
-		}
-		.image-upload a:hover {
-			cursor: pointer;
-			text-decoration: none;
-			color: lightblue;
-			font-weight: bold;
-			font-size: 15px;
-		}
-	    
-	</style>
-	
-	<script type="text/javascript">
-	
-		$(document).ready(function(){
-		
-			$(window).scroll(function() {
-			    if ($(document).scrollTop() > 300) {
-			    	$('.navbar1').css("display", "none");
-			      	$('.navbar2').addClass("navbar-fixed-top");
-			      	$('.navbar2').css("display", "block");
-			    } else {
-			    	$('.navbar1').css("display", "");
-			      	$('.navbar2').removeClass("navbar-fixed-top");
-			      	$('.navbar2').css("display", "none");
-			    }
-			});
-			
-			$('.main').click(function () {
-				$(location).attr("href", root +"/admin/main.html");
-			});
-			
-			$('#guest_keyword').keypress(function (e) {
-				var keypress = e.which;
-			    var keyword = document.getElementById('guest_keyword').value;
-			    
-				if(keypress === 13) {
-				    if (!keyword.replace(/^\s+|\s+$/g, '')) {
-				        alert('키워드를 입력해주세요!');
-				        return false;
-				    } else {
-						$('#blog_searchForm').attr("action", root + "/map/search.html").submit();			    	
-				    }
-				}
-			});
-			$('#guest_searchBtn').click(function () {
-			    var keyword = document.getElementById('guest_keyword').value;
-
-			    if (!keyword.replace(/^\s+|\s+$/g, '')) {
-			        alert('키워드를 입력해주세요!');
-			        return false;
-			    } else {
-					$('#blog_searchForm').attr("action", root + "/map/search.html").submit();			    	
-			    } 
-			});
-			
-			$('#guesthouse_login').click(function () {
-				$(location).attr("href", root + "/member/loginid.html")
-			});
-			
-			/* 사이드 로긴 버튼 가로 사이즈에 맞춰서 크기 조절 */
-			$(window).scroll(function() {
-			    var width = $(document).innerWidth();
-			    var height = $(document).scrollTop();
-			    if(height > 301 || width< 700) {
-			    	$('.login_side').hide();
-			    } else {
-			    	$('.login_side').show();
-			    }
-			});
-		    $(window).resize(function(){
-/* 			    var w = window.innerWidth;
-			    var h = window.innerHeight; */
-			    var width = $(document).innerWidth();
-			    var height = $(document).scrollTop();
-/* 			    console.log(width);
- */			    if(width < 700) {
-			    	$('.login_side').hide();
-			    } else {
-			    	$('.login_side').show();
-			    }
-		    });
-		    
-		    /* 사진등록 */
-			$('#pic_upload').click(function () {
-				alert('123');
-
-			});
-		    
-		});
-		  
-	</script>
-	
-
 </head>
 <body>
+<%@ include file="/guesthouse/book.jsp"%>
 <%@ include file="/common/commonform.jsp"%>
 <%@ include file="/common/writemodal.jsp"%>
 
 	<!-- side login -->
 	<div class="login_side">
-		<a href="#top" class="rrr" id="guesthouse_login"><span class="glyphicon glyphicon-user"></span> 예약</a>
+		<a href="#top" class="booking rrr"><span class="glyphicon glyphicon-user"></span> 예약</a>
 <%-- <c:if test="${loginInfo == null }">
 		<a href="#top" class="rrr" id="guesthouse_login"><span class="glyphicon glyphicon-user"></span> LOGIN</a>
 </c:if>
@@ -414,7 +213,6 @@
 		</div>
 	</section>
 
-							
 	<!-- content section 4 -->
 	<section class="content row">
 	
@@ -459,6 +257,5 @@
 									
 		</div>
 	</section>
-
 </body>
 </html>

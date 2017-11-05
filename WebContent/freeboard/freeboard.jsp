@@ -138,7 +138,7 @@ div{
 <body>
 <%@ include file="/common/commonform.jsp"%>
 <%@ include file="/common/writemodal.jsp"%>
-	<%@ include file="/common/loginmodal.jsp"%>
+<%@ include file="/common/loginmodal.jsp"%>
     <nav class="navbar navbar-default navbar-static-top main_nav">
       <div class="container"
     		style="padding: 2px; margin-top: auto; margin-bottom: auto;">
@@ -200,7 +200,6 @@ div{
         </div>
       </div>
     </nav>
-  </div>
   
 <!--freeboard header -->
 			<header class="container">
