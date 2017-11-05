@@ -34,7 +34,7 @@ Front:
 - HTML5
 - CSS3
 - chart.js^
-- calendar.js^
+- calendar.js
 
 API:
 - Daum address 
