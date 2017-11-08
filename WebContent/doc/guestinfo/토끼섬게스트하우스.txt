@@ -19,3 +19,23 @@ bangyh0860.modoo.at
 젊으신 여사장님의 친절함과 편안함에 강추!!깨끗하고 아늑한 방에 편하게 잘 쉬었구요~특히 3층 카페는 전망이 정말 대박!제주도 게스트하우스중 최고^^
 
 1~2층 복층 숙소에 묵었는데 화장실이 따로있고 깨끗하고 3층에서 맛난 아침을 쳉겨주고 멋진바다가 한눈에 들어오는 장점이 있습니다.단점은 바로주위에 맛집이 빈약해서 근처 5km내에 적당히
+
+
+-----------------
+select store_seq.nextval from dual;
+select guesthouse_seq.nextval from dual;
+select social_seq.nextval from dual;
+
+insert all
+    into member(EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, EMAILCONFIRM)
+    values ('rabbitsum@gmail.com', '토끼섬', '123', 'rabbitsum', 1, 3, 0)
+    
+    into member_detail (tel, addr1, addr2, zipcode, birth, joindate, email)
+    values ('010-1111-3300', '제주특별자치도 제주시 구좌읍 문주란로 121', '토끼섬', '63363', sysdate, sysdate, 'rabbitsum@gmail.com')
+    
+    into store (storeseq, accountnum, biz_license_num, email, storetypeseq, EVALUATION)
+    values (store_seq.currval, '123-123123-123', '1-111111-111', 'rabbitsum@gmail.com', 1, 4)
+    
+    into guesthouse (guestseq, wifi, cafe, eat, sleeptime, checkin, checkout, laundryserved, more, storeseq)
+    values (guesthouse_seq.currval, 1, 1, 1, '22:00', '15:00', '10:00', 1, '멋진바다가 한눈에', store_seq.currval)
+select * from dual;

@@ -53,12 +53,12 @@ String root = request.getContextPath();
 	<template id="list_template">
 		<tr>
 		  
-		  <td>{{originalFileAseq}}</td>
+		  <td>{{originalFileSeq}}</td>
 		  
 		  <td>
-		  	<button type="button" class="btn btn-xs btn-success download" data-fileSeq="{{originalStoreFileSeq}}"> 다운</button>
-		  	<button type="button" class="btn btn-xs btn-warning modify" data-fileSeq="{{originalStoreFileSeq}}"> 수정</button>
-		  	<button type="button" class="btn btn-xs btn-danger delete" data-fileSeq="{{originalStoreFileSeq}}"> 삭제</button>
+		  	<button type="button" class="btn btn-xs btn-success download" data-fileSeq="{{storeFileSeq}}"> 다운</button>
+		  	<button type="button" class="btn btn-xs btn-warning modify" data-fileSeq="{{storeFileSeq}}"> 수정</button>
+		  	<button type="button" class="btn btn-xs btn-danger delete" data-fileSeq="{{storeFileSeq}}"> 삭제</button>
 		  	<button class="btn btn-xs btn-default updateTitlePic" data-storeSeq="{{storeSeq}}" data-storeFileSeq="{{storeFileSeq}}"> 메인</button>
 		  </td>
 		  

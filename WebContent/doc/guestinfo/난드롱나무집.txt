@@ -23,3 +23,22 @@ www.jejuloghome.com
 조용한 곳에서 쉬고 싶어 여기 저기 알아보다가 예약하고 가게됐는데 생각보다 훨씬 깨끗하고 좋더라구요 제대로 힐링 하고 왔습니다ㅋ 다음에 또 기회되면 놀러갈게요 굿!
 
 낚시 처음인데 너무 재미있어요 ㅎㅎ 날 풀리면 또 가고 싶어요 ㅎㅎ
+
+----------
+select store_seq.nextval from dual;
+select guesthouse_seq.nextval from dual;
+select social_seq.nextval from dual;
+
+insert all
+    into member(EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, EMAILCONFIRM)
+    values ('nanderong@gmail.com', '난드롱나무집', '123', 'nanderong', 1, 3, 0)
+    
+    into member_detail (tel, addr1, addr2, zipcode, birth, joindate, email)
+    values ('010-1111-3300', '제주특별자치도 서귀포시 안덕면 대평로 36', '난드롱나무집', '63533', sysdate, sysdate, 'nanderong@gmail.com')
+    
+    into store (storeseq, accountnum, biz_license_num, email, storetypeseq, EVALUATION)
+    values (store_seq.currval, '123-123123-123', '1-111111-111', 'nanderong@gmail.com', 1, 4)
+    
+    into guesthouse (guestseq, wifi, cafe, eat, sleeptime, checkin, checkout, laundryserved, more, storeseq)
+    values (guesthouse_seq.currval, 1, 1, 1, '22:00', '15:00', '10:00', 1, '전객실 복층 독채형 펜션', store_seq.currval)
+select * from dual;

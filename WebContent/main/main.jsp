@@ -131,6 +131,7 @@ $(document).ready(function (){
 		mimeType : 'application/json',
 		success: hotGuestList
 	});
+	
 //	게스트하우스 사진 클릭하면 블로그로 이동
 	$(document).on("click", ".blog", function () {
 		var type = $(this).attr('data-storeType');
@@ -163,10 +164,10 @@ function hotGuestList(lists) {
 	hotbody.empty();
 	var template = $('#hotList_template').html();
 	
-  	for(x in lists[0]) {
+/*   	for(x in lists[0]) {
 		console.log(x);
 		console.log(lists[0][x]);
-	}
+	} */
 /*	
 	for (x in lists) {
 		hotbody.append(Mustache.render(template, lists[x]));					

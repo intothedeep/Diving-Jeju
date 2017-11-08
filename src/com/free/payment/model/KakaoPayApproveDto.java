@@ -5,9 +5,14 @@ public class KakaoPayApproveDto {
 	private final String cid = "TC0ONETIME";
 	private String tid;
 	private final String partner_order_id = "partner_order_id";
-	private final String partner_user_id = "partner_user_id";
+	private String partner_user_id;
 	private String pg_token;
 	
+	
+	
+	public void setPartner_user_id(String partner_user_id) {
+		this.partner_user_id = partner_user_id;
+	}
 	public String getApproveUrl() {
 		return approveUrl;
 	}

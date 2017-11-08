@@ -13,3 +13,22 @@ cafe.naver.com/jejusonagi
 소개
 제주 올레 20코스가 지나는 한동리 안길, 100년 전 지어진 제주 전통 돌집을 리모델링한 게스트 하우스.
 
+
+---------------------------------------------------------------------
+select store_seq.nextval from dual;
+select guesthouse_seq.nextval from dual;
+select social_seq.nextval from dual;
+
+insert all
+    into member(EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, EMAILCONFIRM)
+    values ('lazysonagi@gmail.com', '게으른소나기', '123', 'lazysonagi', 1, 2, 0)
+    
+    into member_detail (tel, addr1, addr2, zipcode, birth, joindate, email)
+    values ('010-1111-3300', '제주특별자치도 제주시 구좌읍 계룡길 45-6', '게으른소나기', '63359', sysdate, sysdate, 'lazysonagi@gmail.com')
+    
+    into store (storeseq, accountnum, biz_license_num, email, storetypeseq, EVALUATION)
+    values (store_seq.currval, '123-123123-123', '1-111111-111', 'lazysonagi@gmail.com', 1, 4)
+    
+    into guesthouse (guestseq, wifi, cafe, eat, sleeptime, checkin, checkout, laundryserved, more, storeseq)
+    values (guesthouse_seq.currval, 1, 1, 1, '22:00', '15:00', '10:00', 1, '제주 전통 돌집을 리모델링한 게하', store_seq.currval)
+select * from dual;

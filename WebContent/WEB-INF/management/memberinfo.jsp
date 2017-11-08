@@ -45,7 +45,7 @@
 
         <div class="form-group" id="gmail-address-form-element">
           <label id="gmail-address-label">
-            <strong> 사용자 이름 </strong>
+            <strong> 사용자 ID </strong>
           </label>
           <div class="">
             <input value="${memberInfo.email}" class="form-control check" id="email" aria-invalid="true" disabled spellcheck="false" type="text" maxlength="30" autocomplete="off" placeholder="email-address" maxlength="">

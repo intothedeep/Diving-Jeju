@@ -248,14 +248,18 @@ ALTER TABLE evaluation
 -- book
 CREATE TABLE book (
 	bookseq     number NOT NULL, -- 예약번호
+	bookedName varchar2(255) null, --예약자이름
+	bookedTel varchar2(255) null, --예약자번호
     whenbook    DATE   DEFAULT sysdate, -- 예약한날짜
 	startbookdate     DATE         NULL,     -- 투숙시작날짜
     endbookdate       DATE         NULL,     -- 투숙마지막날짜
-	numofpeople number NULL,     -- 예약인원
+	numofPersons number NULL,     -- 예약인원
 	roomType varchar2(255) not null, -- 방종류
-	email             varchar2(255) NOT NULL, -- 이메일
+	bookedEmail             varchar2(255) NOT NULL, -- 이메일
 	payseq      number NOT NULL,  -- 결제번호
-	storeseq    number        NOT NULL  -- 스토어 등록번호	
+	storeseq    number        NOT NULL,  -- 스토어 등록번호
+    nights      number    null, -- 몇박
+    isPaid    number    null, -- 결제여부 0:미결제 1:결제
 );
 
 -- book

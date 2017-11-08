@@ -1,5 +1,8 @@
 package com.free.payment.dao;
 
-public interface PaymentDao {
+import com.free.payment.model.PaymentDto;
 
+public interface PaymentDao {
+	int getNextPaySeq();
+	int insertPayInfo(PaymentDto payDto);
 }

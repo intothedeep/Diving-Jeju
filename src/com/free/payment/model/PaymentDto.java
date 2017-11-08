@@ -5,9 +5,9 @@ public class PaymentDto {
 	private String payContent;
 	private int totalPrice;
 	private int payReceived;
-	private int payLeft;
+	private int payLeft = 0;
 	private int payType;
-	private int paySourceSeq;
+	private int paySourceSeq = 1; //1. 방예약
 	
 	public int getPayType() {
 		return payType;

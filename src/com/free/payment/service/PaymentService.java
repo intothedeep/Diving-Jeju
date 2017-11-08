@@ -1,5 +1,9 @@
 package com.free.payment.service;
 
-public interface PaymentService {
+import com.free.payment.model.PaymentDto;
 
+public interface PaymentService {
+	int getNextPaySeq();
+	int insertPayInfo(PaymentDto payDto);
+	
 }

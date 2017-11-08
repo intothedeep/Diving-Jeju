@@ -8,3 +8,22 @@
 www.jejujib.co.kr
 시설정보
 
+----------------
+
+select store_seq.nextval from dual;
+select guesthouse_seq.nextval from dual;
+select social_seq.nextval from dual;
+
+insert all
+    into member(EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, EMAILCONFIRM)
+    values ('jib@gmail.com', '집게스트하우스', '123', 'jib', 1, 3, 0)
+    
+    into member_detail (tel, addr1, addr2, zipcode, birth, joindate, email)
+    values ('010-1111-3300', '제주특별자치도 제주시 한림읍 금능남1길 22', '집게스트하우스', '63010', sysdate, sysdate, 'jib@gmail.com')
+    
+    into store (storeseq, accountnum, biz_license_num, email, storetypeseq, EVALUATION)
+    values (store_seq.currval, '123-123123-123', '1-111111-111', 'jib@gmail.com', 1, 4)
+    
+    into guesthouse (guestseq, wifi, cafe, eat, sleeptime, checkin, checkout, laundryserved, more, storeseq)
+    values (guesthouse_seq.currval, 1, 1, 1, '22:00', '15:00', '10:00', 1, '집이다 집이야!', store_seq.currval)
+select * from dual;

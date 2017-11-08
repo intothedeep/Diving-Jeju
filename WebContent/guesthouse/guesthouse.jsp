@@ -194,13 +194,13 @@
 	</div>	
 	
 	<!-- content section 3 -->
-	<section class="content row">
+<%-- 	<section class="content row">
 		<div class="content_head col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 			<div class="image-upload">
 			    <h3> | 앨범  </h3> 
 			    <label for="file-input">
-			   <%-- 다운로드 href>> 설정방법 with c taglib <c:url value='/board/download/${article.id}'/>
-			    --%>   
+			   다운로드 href>> 설정방법 with c taglib <c:url value='/board/download/${article.id}'/>
+			      
 			    <a href="javascript:return false;"> <span class="glyphicon glyphicon-camera"></span>
 			       	 사진등록
 			    </a>
@@ -211,7 +211,7 @@
 		<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 			<%@ include file="/common/lightbox.jsp"%>
 		</div>
-	</section>
+	</section> --%>
 
 	<!-- content section 4 -->
 	<section class="content row">

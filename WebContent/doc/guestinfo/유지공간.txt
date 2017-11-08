@@ -10,3 +10,25 @@
 uzspace.blog.me
 
 4일동안 연박하는 동안 편하고 친절하였습니다. 뚜벅이 여행에 가장 중요한 교통편도 좋으며 조금만 걸으면 바로 해변이여서 협재해변까지 해변을 걷기 좋습니다. 무엇보다 깨끗하고 도미토리공간도 넓습니다
+
+
+
+----------------
+
+select store_seq.nextval from dual;
+select guesthouse_seq.nextval from dual;
+select social_seq.nextval from dual;
+
+insert all
+    into member(EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, EMAILCONFIRM)
+    values ('yuzi@gmail.com', '유지공간', '123', 'yuzi', 1, 3, 0)
+    
+    into member_detail (tel, addr1, addr2, zipcode, birth, joindate, email)
+    values ('010-1111-3300', '제주특별자치도 제주시 한림읍 금능남1길 22', '유지공간', '63010', sysdate, sysdate, 'yuzi@gmail.com')
+    
+    into store (storeseq, accountnum, biz_license_num, email, storetypeseq, EVALUATION)
+    values (store_seq.currval, '123-123123-123', '1-111111-111', 'yuzi@gmail.com', 1, 4)
+    
+    into guesthouse (guestseq, wifi, cafe, eat, sleeptime, checkin, checkout, laundryserved, more, storeseq)
+    values (guesthouse_seq.currval, 1, 1, 1, '22:00', '15:00', '10:00', 1, '조금만 걸으면 바로 협재해변', store_seq.currval)
+select * from dual;

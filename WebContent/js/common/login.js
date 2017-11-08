@@ -75,6 +75,8 @@ $(document).ready(function() {
 	  
   });
   
+  	//이건 지금 결제 페이지에서 임시로 카카오로긴을 사용하기위한 js코드
+  	//메인에서 나는 카카오에러는 이것때문에 메인에서는 카카오로긴 컨테이너가 없어서!
 	Kakao.Auth.createLoginButton({
 		  container: '#kakaopaylogin',
 		  success: function(authObj) {
