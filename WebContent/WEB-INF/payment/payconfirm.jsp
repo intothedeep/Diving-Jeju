@@ -121,7 +121,7 @@ body {
 </template>
 
 <template id="personInfo_template">
-		<p>kaccount_email: {{kaccount_email}}</p>
+		<p class="kaccount_email" data-kaccount_email="{{kaccount_email}}">kaccount_email: {{kaccount_email}}</p>
 		<p>id: {{id}}</p>
 		
 		<p>profile_image: {{properties.profile_image}}</p>
@@ -164,22 +164,44 @@ body {
 		</tbody>
 	</table>
 	
+	<h6> 예약자 정보를 확인해 주세요.</h6>
+	<div class="container-fluid">
+		<div class="input-group">
+			<span class="input-group-addon">예약자</span>
+			<input type="text" class="bookedName form-control" name="bookedName" placeholder="예약자 성함" value="${loginInfo.name}">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">연락처</span>
+			<input type="text" class="bookedTel form-control" name="bookedTel" placeholder="000-0000-0000" value="010-0509-0523">
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">이메일</span>
+			<input type="email" class="bookedEmail form-control" name="bookedEmail" placeholder="intojeju@gmail.com" value="${loginInfo.email}">
+		</div>	
+	</div>
+	
+	<br>
+	
 	<h4>결제방식</h4>
-	<form class="payInfoform">
-		<input type="radio" name="payType" value="kako" checked> KakaoPay &nbsp;
-		<input type="radio" name="payType" value="bank"> 무통장 &nbsp;
-		<input type="radio" name="payType" value="card"> 신용카드
+	<form class="bookInfoForm" name="bookInfoForm" method="post">
+		<input type="radio" name="payType" value="4" checked> KakaoPay &nbsp;
+		<input type="radio" name="payType" value="3"> 무통장 &nbsp;
+		<input type="radio" name="payType" value="2"> 신용카드 &nbsp;
+		<input type="hidden" id="bookedTel" name="bookedTel" value="">
+		<input type="hidden" id="bookedName" name="bookedName" value="">
+		<input type="hidden" id="bookedEmail" name="bookedEmail" value="">
+		<input type="hidden" name="startBookDate" value="${bookDto.startBookDate}">
+		<input type="hidden" name="endBookDate" value="${bookDto.endBookDate}">
+		<input type="hidden" name="roomType" value="${bookDto.roomType}">
+		<input type="hidden" name="nights" value="${bookDto.nights}">
+		<input type="hidden" name="numOfPersons" value="${bookDto.numOfPersons}">
+		
+		<input type="hidden" name="payContent" value="${storeDto.name}">
+		<input type="hidden" name="totalPrice" value="100000">
+		<input type="hidden" name="paySourceSeq" value="1">
+		<input type="hidden" name="storeSeq" value="${storeDto.storeSeq}">
+		
 	</form>
-	
-	
- 	<div id="kakao_token">
-
-	</div>
-	
-	<div id="person_info">
-	
-	</div>
-	
 	
 	<div class="container-fluid" style="text-align: right; margin-top: 20px;">
 		<button type="button" data-storeName="${storeDto.name}" class="payStart btn btn-warning">
@@ -190,12 +212,12 @@ body {
 	<div>
 		<form id="kakaoPay_form" method="post" action="">
 			<div class="form-group">
-				<label for="access_token" class="control-label">접속토큰 : </label>
-				<input type="text" disabled class="form-control" id="access_token" name="access_token" value="" placeholder="로긴 하세요!">
-			</div>
-			<div class="form-group">
 				<label for="item_name" class="control-label">상품명 : </label>
 				<input type="text" class="form-control" id="item_name" name="item_name" value="${storeDto.name }">
+			</div>
+			<div class="form-group">
+				<label for="access_token" class="control-label">접속토큰 : </label>
+				<input type="text" disabled class="form-control" id="access_token" name="access_token" value="" placeholder="로긴 하세요!">
 			</div>
 		</form>
 	</div>
@@ -203,6 +225,16 @@ body {
 	<div class="container-fluid" style="text-align: center; margin-top: 20px;">
 	  <button class="btn btn-default" id="kakaopaylogin" type="button"></button>
 	</div>
+	<br>
+	<br>
+	<br>
+	
+ 	<div id="kakao_token"></div>
+	<div id="person_info"></div>
+	<br>
+	<br>
+	<br>
+	
 </div>
 	
 <!-- 카카오 -->

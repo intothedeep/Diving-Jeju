@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <select id="hotGuesthouse" resultType="hashmap">
-        select *
+        select s.evaluation*20 evaluation, s.storeseq, g.guestseq, f.STOREDFILENAME, m.name, g.more, s.storetypeseq
         from storeFile f, store s, guesthouse g, member m
         where 
             f.storeSeq = s.storeSeq and

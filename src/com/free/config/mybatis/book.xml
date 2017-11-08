@@ -4,6 +4,37 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.free.book.dao.BookDao">
+<mapper namespace="com.free.payment.dao.BookDao">
     
+    <select id="getBookInfoList" parameterType="String" resultType="bookDto">
+        select *
+        from book b, payment p
+        where 
+        b.paySeq = p.paySeq and
+        bookedEmail = #{bookedEmail}
+        order by bookSeq desc
+    </select>
+    
+    <select id="getNextBookSeq" resultType="int">
+        select book_seq.nextval from dual
+    </select>
+    
+    <insert id="insertBookInfo" parameterType="paymentDto">
+        <![CDATA[
+        insert 
+        into book (
+            bookSeq, bookedName, bookedTel, 
+            bookedEmail, whenBook, startBookDate, 
+            endBookDate, numOfPersons, roomType,
+            paySeq, storeSeq, nights, isPaid
+        )
+        values (
+            #{bookSeq}, #{bookedName}, #{bookedTel}, 
+            #{bookedEmail}, TO_CHAR(SYSDATE, 'YYYY"년" MM"월" DD"일"'), #{startBookDate}, 
+            #{endBookDate}, #{numOfPersons}, #{roomType},
+            #{paySeq}, #{storeSeq}, #{nights}, #{isPaid}
+        )
+        ]]>
+    </insert>
+
 </mapper>

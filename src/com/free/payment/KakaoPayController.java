@@ -1,5 +1,7 @@
 package com.free.payment;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -30,14 +32,19 @@ public class KakaoPayController {
 
 	@RequestMapping(value="initpay.html", method=RequestMethod.POST)
 	@ResponseBody
-	private ResponseEntity<String> initPay(@RequestParam("storeName") String storeName, @RequestParam String authorization) {
+	private ResponseEntity<String> initPay(
+			@RequestParam("storeName") String storeName, 
+			@RequestParam("authorization") String authorization,
+			@RequestParam("partner_user_id") String partner_user_id,
+			HttpSession session) {
+		
 		KakaoPayReadyDto kakaoPayReadyDto = new KakaoPayReadyDto();
 		kakaoPayReadyDto.setItem_name(storeName);
 
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
 		map.add("cid", kakaoPayReadyDto.getCid());
 		map.add("partner_order_id", kakaoPayReadyDto.getPartner_order_id());
-		map.add("partner_user_id", kakaoPayReadyDto.getPartner_user_id());
+		map.add("partner_user_id", partner_user_id);
 		map.add("item_name", kakaoPayReadyDto.getItem_name());
 		map.add("quantity", kakaoPayReadyDto.getQuantity() + "");
 		map.add("total_amount", kakaoPayReadyDto.getTotal_amount() + "");
@@ -58,22 +65,37 @@ public class KakaoPayController {
 	    RestTemplate restTemplate = new RestTemplate();
 	    ResponseEntity<String> response = restTemplate.postForEntity(kakaoPayReadyDto.getReadyUrl(), request , String.class );
 		System.out.println(response);
+		
+		String[] a1 = response.toString().split(",");
+		String[] a2 = a1[1].split(":");
+		String tid = a2[1].replaceAll("\"", "");
+		//System.out.println(tid);
+		
+		session.setAttribute("authorization", authorization);
+		session.setAttribute("partner_user_id", partner_user_id);
+		session.setAttribute("tid", tid);
+		
 	    return response;
 	}
 	
 	@RequestMapping(value="/payok", method=RequestMethod.GET)
 	public ModelAndView payOk(@RequestParam(value="pg_token") String pg_token){
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/WEB-INF/management/bookinfo");
+		mav.setViewName("/WEB-INF/payment/payok");
 		mav.addObject("pg_token", pg_token);
 		return mav;
 	}
 	
 	@RequestMapping(value="/approvepay.html", method=RequestMethod.POST)
 	@ResponseBody
-	public String approvePay(){
+	public ResponseEntity<String> approvePay(@RequestParam("pg_token") String pg_token, HttpSession session){
+
 		KakaoPayApproveDto kakaoPayApproveDto = new KakaoPayApproveDto();
-		System.out.println("1111111111dddddddddddddddddddddddddddddddddddddddddddddddddddd");
+		kakaoPayApproveDto.setPg_token(pg_token);
+		kakaoPayApproveDto.setTid((String) session.getAttribute("tid"));
+		kakaoPayApproveDto.setPartner_user_id((String) session.getAttribute("partner_user_id"));
+		String authorization = (String) session.getAttribute("authorization");
+		
 		//pg_token과 tid를 가져와야 한다. 어떻게 가져오지??? redirect 될 때 pg_token만 보내 주는데...
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
 		map.add("cid",	kakaoPayApproveDto.getCid());
@@ -81,16 +103,21 @@ public class KakaoPayController {
 		map.add("partner_user_id",	kakaoPayApproveDto.getPartner_user_id());
 		map.add("pg_token",	kakaoPayApproveDto.getPg_token());
 		map.add("tid",	kakaoPayApproveDto.getTid());
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-		headers.add("Authorization", "KakaoAK " + adminKey);
+		headers.add("Authorization", "Bearer " + authorization);
 
 	    HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
 	    RestTemplate restTemplate = new RestTemplate();
 	    
-	    Object result = restTemplate.postForEntity(kakaoPayApproveDto.getApproveUrl(), request , String.class);
-	    String response = (String) result;
+	    ResponseEntity<String> response = restTemplate.postForEntity(kakaoPayApproveDto.getApproveUrl(), request , String.class);
 	    System.out.println(response);
+	    
+	    session.removeAttribute("tid");
+	    session.removeAttribute("partner_user_id");
+	    session.removeAttribute("authorization");
+	    
 		return response;
 		
 	}

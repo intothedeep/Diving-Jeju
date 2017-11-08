@@ -1,21 +1,43 @@
 package com.free.payment.model;
 
-public class BookDto {
+public class BookDto extends PaymentDto{
 	private int bookSeq;
+	private String bookedName;
+	private String bookedTel;
+	private String bookedEmail;  //예약하는 사람 이메일
 	private String whenBook;
 	private String startBookDate;
 	private String endBookDate;
-	private int nights;
-	private int paySeq;
 	private int numOfPersons;
 	private String roomType;
+	private int paySeq;
 	private int storeSeq;
-	private String email;  //예약하는 사람 이메일
+	private int nights;
+	private int isPaid = 0; // 0: 미결제, 1: 결제
+	
 	public int getBookSeq() {
 		return bookSeq;
 	}
 	public void setBookSeq(int bookSeq) {
 		this.bookSeq = bookSeq;
+	}
+	public String getBookedName() {
+		return bookedName;
+	}
+	public void setBookedName(String bookedName) {
+		this.bookedName = bookedName;
+	}
+	public String getBookedTel() {
+		return bookedTel;
+	}
+	public void setBookedTel(String bookedTel) {
+		this.bookedTel = bookedTel;
+	}
+	public String getBookedEmail() {
+		return bookedEmail;
+	}
+	public void setBookedEmail(String bookedEmail) {
+		this.bookedEmail = bookedEmail;
 	}
 	public String getWhenBook() {
 		return whenBook;
@@ -35,18 +57,6 @@ public class BookDto {
 	public void setEndBookDate(String endBookDate) {
 		this.endBookDate = endBookDate;
 	}
-	public int getNights() {
-		return nights;
-	}
-	public void setNights(int nights) {
-		this.nights = nights;
-	}
-	public int getPaySeq() {
-		return paySeq;
-	}
-	public void setPaySeq(int paySeq) {
-		this.paySeq = paySeq;
-	}
 	public int getNumOfPersons() {
 		return numOfPersons;
 	}
@@ -59,18 +69,24 @@ public class BookDto {
 	public void setRoomType(String roomType) {
 		this.roomType = roomType;
 	}
+	public int getPaySeq() {
+		return paySeq;
+	}
+	public void setPaySeq(int paySeq) {
+		this.paySeq = paySeq;
+	}
 	public int getStoreSeq() {
 		return storeSeq;
 	}
 	public void setStoreSeq(int storeSeq) {
 		this.storeSeq = storeSeq;
 	}
-	public String getEmail() {
-		return email;
+	public int getNights() {
+		return nights;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
+	public void setNights(int nights) {
+		this.nights = nights;
+	}	
+
 	
 }

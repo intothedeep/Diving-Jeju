@@ -22,6 +22,9 @@
 		
 		<link rel="stylesheet" href="${root}/fonts/font-awesome.min.css">
 		<link rel="stylesheet" href="${root}/css/join/join.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+			
 	<title>예약현황</title>
 
 </head>
@@ -45,7 +48,7 @@ $(document).ready(function () {
 		<table class="table table-bordered">
 			<thead >
 				<tr class="active" style="border-bottom: thick solid lightblue; text-weight: bold;">
-					<th style=" text-align: center;"> 구매번호 </th>
+					<th style=" text-align: center;"> # </th>
 					<th style=" text-align: center;"> 구입일 </th>
 					<th style=" text-align: center;"> 예약날짜 </th>
 					<th style=" text-align: center;"> 상품 </th>
@@ -53,24 +56,52 @@ $(document).ready(function () {
 					<th style=" text-align: center;"> 기타 </th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td class="col-sm-2" style=" text-align: center;"> 123421 </td>
-					<td class="col-sm-1" style=" text-align: center;"> 날짜 </td>
-					<td class="col-sm-2" style=" text-align: center;"> 날짜 ~ 날짜 </td>
-					<td class="col-sm-3"> 내역 </td>
-					<td class="col-sm-2" style=" text-align: right;"> 금액 </td>
-					<td class="col-sm-2" style=" text-align: center;">
-						<button class="btn btn-xs btn-warning" value="">변경</button>
-						<button class="btn btn-xs btn-danger" value="">반품</button>
-					</td>
-				</tr>
+			<tbody id="book_info_body">
+
 			</tbody>
 		</table>
 		
 	</div>
+	<template id="book_info_body_template">
+		<tr>
+			<td class="col-sm-1" style=" text-align: center;"> {{bookSeq}} </td>
+			<td class="col-sm-2" style=" text-align: center;"> {{whenBook}} </td>
+			<td class="col-sm-3" style=" text-align: center;"> {{startBookDate}}~{{endBookDate}} ({{nights}}박) </td>
+			<td class="col-sm-2"> {{payContent}} </td>
+			<td class="col-sm-2" style=" text-align: right;"> {{totalPrice}}원</td>
+			<td class="col-sm-2" style=" text-align: center;">
+				<button class="btn btn-xs btn-warning" value="">변경</button>
+				<button class="btn btn-xs btn-danger" value="">환불</button>
+			</td>
+		</tr>	
+	</template>
 	
+	<script type="text/javascript">
+	$(document).ready(function () {
+		var data = { "email":"${loginInfo.email}" };
+		getBookInfoList(data);
+	});
 	
-	
+	function getBookInfoList(data) {
+		var book_info_body = $('#book_info_body');
+		book_info_body.empty();
+		
+		var template = $('#book_info_body_template').html();
+		
+		var request = $.ajax({
+			url: root + "/book/list",
+			type: 'get',
+			dataType: 'json',
+			data: data
+		});
+		
+		request.done(function (data) {
+			console.log(data);
+			$.each(data, function(i, bookInfo) {
+				book_info_body.append(Mustache.render(template, bookInfo));
+			});
+		});
+	}
+	</script>
 </body>
 </html>

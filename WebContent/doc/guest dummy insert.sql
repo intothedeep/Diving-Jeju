@@ -102,6 +102,15 @@ insert into member_type (membertype, membertypename) values (1, '관리자');
 insert into member_type (membertype, membertypename) values (2, '사업자');
 insert into member_type (membertype, membertypename) values (3, '회원');
 
+
+
+-- pay_type
+insert into pay_type values(0, '기타');
+insert into pay_type values(1, '현금');
+insert into pay_type values(2, '카드');
+insert into pay_type values(3, '무통장');
+insert into pay_type values(4, '카카오페이');
+
 /*=================================================================*/
 -- 여기서부터는 실제 데이터를 입력
 

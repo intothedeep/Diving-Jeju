@@ -5,7 +5,7 @@ public class KakaoPayReadyDto {
 	private String authorization;
 	private final String cid = "TC0ONETIME";
 	private final String partner_order_id = "partner_order_id";
-	private final String partner_user_id = "partner_user_id";
+	private String partner_user_id;
 	private String item_name;
 	private final int quantity = 3;
 	private final int total_amount = 100000;

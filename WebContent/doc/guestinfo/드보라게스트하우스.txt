@@ -1,0 +1,32 @@
+상세정보
+위치
+제주특별자치도 제주시 구좌읍 해맞이해안로 1588-10 (우)63362
+지번구좌읍 하도리 2979-1
+홈 페이지
+www.deborah.co.kr
+연락처
+064-782-5933 대표번호
+
+생긴지 얼마 안된 게스트하우스라 그런지 시설도 깨끝하고 좋네요 바닷가가 앞이라 전망도 좋고.. 조용한데.. 밤이 늦으면 먹을데가 없는게 흠이네요..
+
+깨끗하고..주인님 넘 좋고..전망 끝내주네요.소개하고싶어요.내년에 또 올거에요.
+
+------------------
+
+select store_seq.nextval from dual;
+select guesthouse_seq.nextval from dual;
+select social_seq.nextval from dual;
+
+insert all
+    into member(EMAIL, NAME, PASS, ID, JOINTYPE, MEMBERTYPE, EMAILCONFIRM)
+    values ('deborah@gmail.com', '드 보라 게스트하우스', '123', 'deborah', 1, 3, 0)
+    
+    into member_detail (tel, addr1, addr2, zipcode, birth, joindate, email)
+    values ('010-1111-3300', '제주특별자치도 제주시 구좌읍 해맞이해안로 1588-10', '드 보라 게스트하우스', '63362', sysdate, sysdate, 'deborah@gmail.com')
+    
+    into store (storeseq, accountnum, biz_license_num, email, storetypeseq, EVALUATION)
+    values (store_seq.currval, '123-123123-123', '1-111111-111', 'deborah@gmail.com', 1, 4)
+    
+    into guesthouse (guestseq, wifi, cafe, eat, sleeptime, checkin, checkout, laundryserved, more, storeseq)
+    values (guesthouse_seq.currval, 1, 1, 1, '22:00', '15:00', '10:00', 1, '전망 끝내주네요.소개하고싶어요.', store_seq.currval)
+select * from dual;

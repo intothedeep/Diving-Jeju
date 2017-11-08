@@ -21,6 +21,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAlias alias="storeDto" type="com.free.store.model.StoreDto"/>
         <typeAlias alias="emailAuthDto" type="com.free.member.model.EmailAuthDto"/>
         <typeAlias alias="bookDto" type="com.free.payment.model.BookDto"/>
+        <typeAlias alias="paymentDto" type="com.free.payment.model.PaymentDto"/>
+        
     <!--        
         <typeAlias alias="emailAuthDto" type="com.free.payment.model.EmailAuthDto"/>
         <typeAlias alias="emailAuthDto" type="com.free.payment.model.EmailAuthDto"/>
