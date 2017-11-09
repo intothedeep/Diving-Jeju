@@ -34,7 +34,7 @@ Front:
 - HTML5
 - CSS3
 - chart.js^
-- calendar.js
+- fullcalendar.js
 - summernote
 
 API:
