@@ -68,7 +68,8 @@ section.book_div {
 			    events: [
 			    	{
 			    		title: "입실",
-			    		start: startBookDate
+			    		start: startBookDate,
+			    		days: 1
 			    	},
 			    	{
 			    		title: "퇴실",

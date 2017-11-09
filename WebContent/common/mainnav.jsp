@@ -5,7 +5,7 @@
 
     <div class="">
     <header class="main_header" style="height: 80px; text-align: center;">
-      <h1>Jeju Diving & GuestHouse</h1>
+      <h1>Diving & Jeju</h1>
     </header>
 
     <nav class="navbar navbar-default navbar-static-top main_nav" data-spy="affix" data-offset-top="78">
