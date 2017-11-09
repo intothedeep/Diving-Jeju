@@ -35,6 +35,7 @@ Front:
 - CSS3
 - chart.js^
 - calendar.js
+- summernote
 
 API:
 - Daum address 
