@@ -8,7 +8,7 @@ This is my first personal project since I have started learning programming!
 Techs that I used and will use:
 
 IDE:
-- Spring
+- Eclipse
 - Atom
 
 Backend:
